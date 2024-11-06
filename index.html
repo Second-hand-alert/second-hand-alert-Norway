@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+  <body>
+    <h1>Hello Extensions</h1>
+    <script module>
+      
+      function getData(url) {
+        fetch(url)
+        .then(response => {
+          // When the page is loaded convert it to text
+          return response.text()
+        })
+        .then(html => {
+          // // Initialize the DOM parser
+          // const parser = new DOMParser()
+
+          // // Parse the text
+          // const doc = parser.parseFromString(html, "text/html")
+
+          // // You can now even select part of that html as you would in the regular DOM
+          // // Example:
+          // // const docArticle = doc.querySelector('article').innerHTML
+
+          console.log(html)
+        })
+        .catch(error => {
+          console.error('Failed to fetch page: ', error)
+        })
+      }
+      getData('https://www.finn.no/bap/forsale/search.html?q=billy+bokhylle+80+28+106+hvit&trade_type=1')
+    </script>
+  </body>
+</html>

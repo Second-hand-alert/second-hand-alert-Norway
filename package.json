@@ -1,0 +1,26 @@
+{
+  "name": "used-alternative",
+  "version": "0.0.1",
+  "description": "Browser addon to give you second hand/used alternatives to new products when shopping.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eklem/used-alternative.git"
+  },
+  "keywords": [
+    "shopping",
+    "secondhand"
+  ],
+  "author": "Espen Klem",
+  "bugs": {
+    "url": "https://github.com/eklem/used-alternative/issues"
+  },
+  "homepage": "https://github.com/eklem/used-alternative#readme",
+  "devDependencies": {
+    "cheerio": "^1.0.0",
+    "rollup": "^4.24.4"
+  }
+}
