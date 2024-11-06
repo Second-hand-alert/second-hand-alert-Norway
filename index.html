@@ -1,7 +1,25 @@
 <!DOCTYPE html>
   <head>
     <link rel="icon" href="./img/favicon.ico" />
-    <script defer data-domain="eklem.github.io" src="https://plausible.io/js/script.js"></script>
+
+    <!-- ### Analytics stuff - manual  -->
+    <script defer data-domain="eklem.github.io" src="https://plausible.io/js/script.manual.js"></script>
+    <!-- define the `plausible` function to manually trigger events -->
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <!-- trigger pageview -->
+    <script>
+      function prepareUrl(params) {
+        const url = new URL('https://www.ikea.com/no/no/p/billy-bokhylle-hvit-30263844/')
+        const queryParams = new URLSearchParams(location.search)
+        let customUrl = url.protocol + "//" + url.hostname + url.pathname.replace(/\/$/, '')
+        for (const paramName of params) {
+          const paramValue = queryParams.get(paramName)
+          if (paramValue) customUrl = customUrl + '/' + paramValue
+        }
+        return customUrl
+      }
+      plausible('pageview', { u: prepareUrl(["productPage", ... ]) + window.location.search })
+    </script>
   </head>
   <body>
     <h1>Hello Extensions</h1>
