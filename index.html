@@ -2,7 +2,7 @@
   <body>
     <h1>Hello Extensions</h1>
     <script module>
-      
+
       function getData(url) {
         fetch(url)
         .then(response => {
@@ -26,7 +26,18 @@
           console.error('Failed to fetch page: ', error)
         })
       }
-      getData('https://www.finn.no/bap/forsale/search.html?q=billy+bokhylle+80+28+106+hvit&trade_type=1')
+
+      // URL object to assemble a search URL
+      const urlObject = {
+        category: 'category=0.78',
+        buying: 'for_rent=0',
+        q: 'q=',
+        lowestFirst: 'sort=PRICE_ASC',
+        forSale: 'trade_type=1',
+        giveAway: 'trade_type=2'
+      }
+
+      getData('https://www.finn.no/bap/forsale/search.html?category=0.78&for_rent=0&q=billy+bokhylle+hvit+80+28+106&trade_type=1&trade_type=2')
     </script>
   </body>
 </html>
