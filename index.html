@@ -18,7 +18,7 @@
         }
         return customUrl
       }
-      plausible('pageview', { u: prepareUrl() + window.location.search })
+      plausible('pageview', { u: prepareUrl(["IKEA"]) + window.location.search })
     </script>
   </head>
   <body>
