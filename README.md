@@ -1,4 +1,4 @@
-# used-alternative
+# used-alternative-alert
 Browser addon to give you second hand/used alternatives to new products when shopping.
 
 ## Description
