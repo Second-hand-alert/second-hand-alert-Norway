@@ -7,6 +7,11 @@ When in store.com, notify you if there is a used alternative at usedstore.com.
 
 ## Moving parts
 
+### Packaging / bundling
+
+* [Rollup](https://rollupjs.org/es-module-syntax/#importing)
+* Extension packager (Chrome, Firefox)
+
 ### Browser extension (Chrome first)
 
 * [Content script](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts)
