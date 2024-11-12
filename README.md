@@ -26,6 +26,10 @@ To use notifications on mobile browsers, it seems you need to use [getNotificati
 
 So i.e. [ngrok](https://ngrok.com/) needs to be set up like done on the [geo-search-helper repo](https://github.com/eklem/geo-search-helper?tab=readme-ov-file#set-up-ngrok-account).
 
+### Service worker
+
+The notification part needs a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+
 ### Analytics
 
 [Plausible.io](https://plausible.io/)
