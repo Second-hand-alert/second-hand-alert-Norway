@@ -1,0 +1,49 @@
+{
+  "category":"15358",
+  "category_local":"Modulsofaer i tekstil",
+  "currency_code":"NOK",
+  "event_array":[
+    "product_view"
+  ],
+  "hfb_name":"Living room seating",
+  "hfb_no":"01",
+  "pa_name":"Sofas",
+  "pa_no":"0111",
+  "page_name":"product information page\u003eprodview\u003e09305426",
+  "page_type":"product information page",
+  "pip_per_visit":"+1",
+  "pra_name":"Sofas",
+  "pra_no":"011",
+  "price":[
+    "7670"
+  ],
+  "product_collections":"no collections",
+  "product_ids":[
+    "09305426"
+  ],
+  "product_images_no":"6",
+  "product_item_names":[
+    "söderhamn 4-seters sofa med sjeselong og åpen ende/gunnared beige"
+  ],
+  "product_names":[
+    "söderhamn"
+  ],
+  "product_prices":[
+    "6136"
+  ],
+  "product_series":"SÖDERHAMN-serien",
+  "product_type":"SPR",
+  "product_variant":"Med sjeselong og åpen ende/Gunnared beige",
+  "product_vats":[
+    "1534.00"
+  ],
+  "prodview_type":"PIP",
+  "site_platform":"m2",
+  "site_section":"product information page",
+  "subproducts":"20223882,00223864,80223884,70463469,50463470,10463467",
+  "tax":[
+    "1534.00"
+  ],
+  "visit_country":"no",
+  "visit_language":"no"
+}
