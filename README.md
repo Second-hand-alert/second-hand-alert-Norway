@@ -18,9 +18,13 @@ When in store.com, notify you if there is a used alternative at usedstore.com.
 * [manifest.json](https://developer.chrome.com/docs/extensions/reference/manifest)
 * ...
 
-### Web notification API
+### Notification API
 
-[Notification](https://developer.mozilla.org/en-US/docs/Web/API/Notification)
+The [notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
+
+To use notifications on mobile browsers, it seems you need to use [getNotifications()](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/getNotifications) and [showNotification()](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification) form a service worker. And the service worker need https.
+
+So i.e. [ngrok](https://ngrok.com/) needs to be set up like done on the [geo-search-helper repo](https://github.com/eklem/geo-search-helper?tab=readme-ov-file#set-up-ngrok-account).
 
 ### Analytics
 
