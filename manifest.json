@@ -14,5 +14,10 @@
     "default_popup": "index.html",
     "default_icon": "./img/icon48.png"
   },
-  "permissions": ["sidePanel"]
+  "content_scripts": [
+    {
+      "matches": ["*://*.ikea.com/no/no/p*"],
+      "js": ["ikea.no.js"]
+    }
+  ]
 }

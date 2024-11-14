@@ -18,6 +18,8 @@ When in store.com, notify you if there is a used alternative at usedstore.com.
 * [manifest.json](https://developer.chrome.com/docs/extensions/reference/manifest)
 * ...
 
+You can define a content script for each 
+
 ### Notification API
 
 The [notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
