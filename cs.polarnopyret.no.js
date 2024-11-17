@@ -1,8 +1,11 @@
 let titleTag = ''
 let regexPolarnopyretNo = ''
+let productPage = false
+const productPageRegex = /\d{5,10}-\d{3,5}$/gu
 let title = ''
 let currentUrl = location.href;
 let firstTime = true
+
 
 // Function for getting URL and title from page
 const getUrlTitle= function () {
@@ -10,7 +13,13 @@ const getUrlTitle= function () {
   titleTag = document.getElementsByTagName("title")[0].innerHTML
   regexPolarnopyretNo = RegExp('.+(?=-)', 'gu')
   title = regexPolarnopyretNo.exec(titleTag)
-  alert('Hallo Polarn O. Pyret side: ' + title + '\n' + location.href + '\nFørste POP-sidevisning?: ' + firstTime)
+  if (productPageRegex.test(location.href)) {
+    productPage = true
+  } else {
+    productPage = false
+  }
+  
+  alert('Hallo Polarn O. Pyret side: ' + title + '\n' + location.href + '\nFørste POP-sidevisning: ' + firstTime + '\nProduct page: ' + productPage)
 } 
 
 // Get URL and title of page the first time entering polarnopyret.no
