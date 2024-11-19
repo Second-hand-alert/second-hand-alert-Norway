@@ -22,6 +22,10 @@
     {
       "matches": ["*://*.polarnopyret.no/*"],
       "js": ["cs.polarnopyret.no.js"]
+    },
+    {
+      "matches": ["*://*.reima.com/nb-NO*"],
+      "js": ["cs.reima.no.js"]
     }
   ]
 }

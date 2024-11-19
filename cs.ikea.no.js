@@ -5,4 +5,3 @@ let title = ''
 title = regexIkeaNoNo.exec(titleTag)
 
 alert('Hallo Ikea produkt-side for: ' + title)
-console.dir(title)
