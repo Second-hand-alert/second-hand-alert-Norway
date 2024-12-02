@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Side panel extension",
-  "version": "1.1.5",
-  "description": "Extension with a default side panel.",
+  "name": "Used alternative alert",
+  "version": "1.1.6",
+  "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
     "16": "./img/icon16.png",
     "32": "./img/icon32.png",
@@ -10,6 +10,11 @@
     "64": "./img/icon64.png",
     "128": "./img/icon128.png"
   },
+  "background":{
+      "service_worker":"background.js",
+      "scripts": ["background.js"]
+  },
+  "permissions":["storage","tabs","notifications"],
   "action": {
     "default_popup": "index.html",
     "default_icon": "./img/icon48.png"
@@ -22,10 +27,6 @@
     {
       "matches": ["*://*.polarnopyret.no/*"],
       "js": ["cs.polarnopyret.no.js"]
-    },
-    {
-      "matches": ["*://*.reima.com/nb-NO*"],
-      "js": ["cs.reima.no.js"]
     }
   ]
 }
