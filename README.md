@@ -1,9 +1,9 @@
-# used-alternative-alert
-Browser extension to give you second hand/used alternatives to new products when shopping.
+# Second-hand alert!
+Browser extension to give you an alert when second hand/used alternatives to new products are available.
 
 ## Description
 
-When in store.com, notify you if there is a used alternative at usedstore.com.
+When in store.com, notify you if there is a used alternative at secondhand-store.com.
 
 ## Moving parts
 
