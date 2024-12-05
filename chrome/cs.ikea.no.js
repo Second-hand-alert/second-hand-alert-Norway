@@ -7,7 +7,8 @@ if (typeof browser === "undefined") {
 }
 
 title = regexIkeaNoNo.exec(titleTag)
+let type = 'CONTENT_BACKGROUND'
 
-alert('Hallo Ikea produkt-side for: ' + title)
+// alert('Hallo Ikea produkt-side for: ' + title)
 
-browser.runtime.sendMessage( title )
+browser.runtime.sendMessage({ type: type, title: title[0] })
