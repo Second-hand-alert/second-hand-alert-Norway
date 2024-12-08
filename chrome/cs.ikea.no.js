@@ -19,13 +19,12 @@ function extractIkea() {
   productObject.title = document.getElementsByTagName("title")[0].innerHTML
   productObject.queryPartReadable = regexStandard.exec(productObject.title)
 
+  // Check if measurement in title
   if (testMeasurement.test(productObject.title)) {
-    console.log('Measurement in title')
-
     let measurement = []
     let i
     // Populate measurement with all matches
-    while ((i = regexMeasurement.exec(productObject.title)) !== null) {
+    while (i = regexMeasurement.exec(productObject.title)) {
         i.forEach((match) => {
           measurement.push(match)
         })
@@ -36,7 +35,7 @@ function extractIkea() {
   productObject.queryPartReadable = productObject.queryPartReadable.join(' ')
   // Create queryPart to use in the actual query
   productObject.queryPart = productObject.queryPartReadable.replaceAll(' ', '+')
-  console.log(JSON.stringify(productObject))
+  console.log(JSON.stringify(productObject, null, ' '))
 }
 
 extractIkea()
