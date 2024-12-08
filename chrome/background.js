@@ -13,7 +13,7 @@ function productFound(message) {
   let options = {
     type: 'basic',
     title: message,
-    message: 'Hits on FINN Torget for: "' + message + '": ' + productHits,
+    message: 'Hits on FInn: ' + productHits,
     iconUrl: './img/icon128.png',
   }
   productSearch(message)

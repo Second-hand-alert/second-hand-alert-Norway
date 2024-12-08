@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Used alternative alert",
+  "name": "Second-hand alert",
   "version": "1.1.8",
   "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
