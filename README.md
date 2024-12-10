@@ -1,6 +1,7 @@
 # 2.hand.cheap
 
-## Alert when second hand alternative is available!
+**Alert when second hand alternative is available!**
+
 Second-hand alternative alert. Browser addon to give you an alert when second hand/used alternatives to new products are available.
 
 ## Description
