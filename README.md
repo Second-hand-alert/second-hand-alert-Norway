@@ -1,4 +1,4 @@
-# 2.hand.cheap
+# Second hand alert
 
 **Alert when second hand alternative is available!**
 
