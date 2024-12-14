@@ -9,7 +9,7 @@ if (typeof browser === "undefined") {
 
 function productFound(message) {
   console.log('Product to search Finn for: ' + message)
-  message = encodeURI(message)
+  message = encodeURI(message.URL)
   let options = {
     type: 'basic',
     title: message,
@@ -40,7 +40,7 @@ function productSearch(querytext) {
 
 // chrome.runtime.onMessage.addListener(productFound)
 browser.runtime.onMessage.addListener((data) => {
-  console.log('data object: ' + JSON.stringify(data))
+  console.log('data object: ' + JSON.stringify(data, null, '  '))
   console.log('Type: ' + data.type)
   if (data.type === 'CONTENT_BACKGROUND') {
     console.log('Title: ' + data.title)

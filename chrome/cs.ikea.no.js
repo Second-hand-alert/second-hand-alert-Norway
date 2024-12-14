@@ -1,44 +1,69 @@
-// Firefox undestand 'browser', Chrome needs 'chrome'
+// ###    A: Make script work for Firefox and Chrome-based browsers
+// ###    B: ProductObject defined, to be sent to background.js
+// ###    C: function extractAndPrepareIkea() - Extract data from Ikea and prepare object to be sent to background.js
+// ###    D: function sendObj() - Send prodObj to background.js
+// ###    E: Execute extract + send
+
+
+// ###    ---------------------------------------------------------
+// ###    A: Make script work for Firefox and Chrome-based browsers
 if (typeof browser === "undefined") {
   var browser = chrome
 }
-// Setting other variables
-let productObject = {
+
+// ###    B: ProductObject defined, to be sent to background.js
+let prodObj = {
+  type: 'CONTENT_BACKGROUND',
   title: '',
   queryPartReadable: '',
   queryPart: '',
-  type: 'CONTENT_BACKGROUND'
+  URL: '',
+  urlPart1: 'https://www.finn.no/bap/forsale/search.html?category=0.78&q=',
+  urlPart2: '&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
+  searchSite: 'FINN'
 }
 
-// ### Regex-test + extraction done to get something searchable
-function extractIkea() {
+// ###    -----------------------------------------------------------------------------------------------------------
+// ###    C: function extractAndPrepareIkea() - Extract data from Ikea and prepare object to be sent to background.js
+function extractAndPrepareIkea() {
   let regexStandard = /^.+?(?=, )/gmu
   let testMeasurement =  /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)/gmu
   let regexMeasurement = /\d\d+/gmu
 
-  productObject.title = document.getElementsByTagName("title")[0].innerHTML
-  productObject.queryPartReadable = regexStandard.exec(productObject.title)
+  prodObj.title = document.getElementsByTagName("title")[0].innerHTML
+  prodObj.queryPartReadable = regexStandard.exec(prodObj.title)
 
   // Check if measurement in title
-  if (testMeasurement.test(productObject.title)) {
+  if (testMeasurement.test(prodObj.title)) {
     let measurement = []
     let i
     // Populate measurement with all matches
-    while (i = regexMeasurement.exec(productObject.title)) {
+    while (i = regexMeasurement.exec(prodObj.title)) {
         i.forEach((match) => {
           measurement.push(match)
         })
       }
-    productObject.queryPartReadable.push(...measurement)  
+    prodObj.queryPartReadable.push(...measurement)  
   }
   // Populate queryPart, join to string with '+'
-  productObject.queryPartReadable = productObject.queryPartReadable.join(' ')
+  prodObj.queryPartReadable = prodObj.queryPartReadable.join(' ')
   // Create queryPart to use in the actual query
-  productObject.queryPart = productObject.queryPartReadable.replaceAll(' ', '+')
-  console.log(JSON.stringify(productObject, null, ' '))
+  prodObj.queryPart = prodObj.queryPartReadable.replaceAll(' ', '+')
+  // Create URL and delete key/values not needed
+  prodObj.URL = prodObj.urlPart1 + prodObj.queryPart + prodObj.urlPart2
+  delete prodObj.queryPart
+  delete prodObj.urlPart1
+  delete prodObj.urlPart2
+  console.log(JSON.stringify(prodObj, null, ' '))
 }
 
-extractIkea()
+// ###    -----------------------------------------------------
+// ###    D: function sendObj() - Send prodObj to background.js
+function sendObj() {
+  browser.runtime.sendMessage(prodObj)
+}
 
-// Object sent to backgroiund.js should have message type, product title and the text part of the query
-// browser.runtime.sendMessage(productObject)
+// ###    ---------------------------------------------
+// ###    E: Execute extract + send
+extractAndPrepareIkea()
+sendObj()
