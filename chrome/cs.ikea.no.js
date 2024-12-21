@@ -4,14 +4,16 @@
 // ###    D: function sendObj() - Send prodObj to background.js
 // ###    E: Execute extract + send
 
-
-// ###    ---------------------------------------------------------
-// ###    A: Make script work for Firefox and Chrome-based browsers
+// ###    ---------------------------------------------------------------    ###
+// ###    A: Make script work for Firefox and Chrome-based browsers          ###
+// ###                                                                       ###
 if (typeof browser === "undefined") {
   var browser = chrome
 }
 
-// ###    B: ProductObject defined, to be sent to background.js
+// ###    ---------------------------------------------------------------    ###
+// ###    B: ProductObject defined, to be sent to background.js              ###
+// ###                                                                       ###
 let prodObj = {
   type: 'CONTENT_BACKGROUND',
   title: '',
@@ -20,11 +22,14 @@ let prodObj = {
   URL: '',
   urlPart1: 'https://www.finn.no/bap/forsale/search.html?category=0.78&q=',
   urlPart2: '&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
-  searchSite: 'FINN'
+  searchSite: 'FINN',
+  searchResults: null
 }
 
-// ###    -----------------------------------------------------------------------------------------------------------
-// ###    C: function extractAndPrepareIkea() - Extract data from Ikea and prepare object to be sent to background.js
+// ###    ---------------------------------------------------------------    ###
+// ###    C: function extractAndPrepareIkea() - Extract data from Ikea       ###
+// ###       and prepare object to be sent to background.js                  ###
+// ###                                                                       ###
 function extractAndPrepareIkea() {
   let regexStandard = /^.+?(?=, )/gmu
   let testMeasurement =  /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)/gmu
@@ -57,13 +62,23 @@ function extractAndPrepareIkea() {
   console.log(JSON.stringify(prodObj, null, ' '))
 }
 
-// ###    -----------------------------------------------------
-// ###    D: function sendObj() - Send prodObj to background.js
-function sendObj() {
-  browser.runtime.sendMessage(prodObj)
+// ###    ---------------------------------------------------------------    ###
+// ###    D: function sendObj() - Send prodObj to background.js              ###
+// ###                                                                       ###
+function sendObj(obj) {
+  console.log('Sending object: ' + obj)
+  const sending = browser.runtime.sendMessage(obj)
+  sending
+    .then(response => {
+      console.log('Response to cs.ikea from background: ' + JSON.stringify(response, null, ' '))
+    })
+    .catch(error => {
+      console.error('Error sending from cs.ikea to background: ', error)
+    })
 }
 
-// ###    ---------------------------------------------
-// ###    E: Execute extract + send
+// ###    ---------------------------------------------------------------    ###
+// ###    E: Execute extract + send                                          ###
+// ###                                                                       ###
 extractAndPrepareIkea()
-sendObj()
+sendObj(prodObj)

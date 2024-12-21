@@ -1,87 +1,44 @@
 <!DOCTYPE html>
   <head>
-    <link rel="icon" href="./img/favicon-alt.png" />
-
-    <!-- ### Analytics stuff - manual  -->
-    <script defer data-domain="eklem.github.io" src="https://plausible.io/js/script.outbound-links.revenue.tagged-events.js"></script>
-    
-
-    <!-- define the `plausible` function to manually trigger events -->
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
-    <!-- trigger pageview -->
-    <script>
-      function prepareUrl() {
-        const url = new URL('https://www.ikea.com/no/no/p/billy-bokhylle-hvit-30263844/')
-        const queryParams = new URLSearchParams(location.search)
-        let customUrl = url.protocol + "//" + url.hostname + url.pathname.replace(/\/$/, '')
-        return customUrl
-      }
-      plausible('pageview', { u: prepareUrl() + window.location.search })
-
-      document.addEventListener('click', function (event) {
-        var link = event.target;
-        while(link && (typeof link.tagName == 'undefined' || link.tagName.toLowerCase() != 'a' || !link.href)) {
-          link = link.parentNode
-        }
-
-        if (link && link.href && link.host && link.host !== location.host) {
-          gtag('event', 'Click', {
-            event_category: 'Outbound Link',
-            event_label : link.href
-          });
-          // Or, if you're using analytics.js
-          // ga('send', 'event', 'Outbound Link', 'Click', link.href);
-
-          // Allow event to be sent before the page is unloaded
-          if(!link.target || link.target.match(/^_(self|parent|top)$/i)) {
-            setTimeout(function() { location.href = link.href; }, 150);
-            event.preventDefault();
-          }
-        }
-      })
-    </script>
+    <title>test</title>
   </head>
   <body>
-    <h1>Used alternative alert</h1>
-    <a href="https://www.finn.no/bap/forsale/search.html?category=0.78&for_rent=0&q=billy+bokhylle+hvit+80+28+106&trade_type=1&trade_type=2">FINN-link</a>
+    <!-- trigger pageview -->
     <script>
-
-      function getData(url) {
-        fetch(url)
-        .then(response => {
-          // When the page is loaded convert it to text
-          return response.text()
-        })
-        .then(html => {
-          // // Initialize the DOM parser
-          // const parser = new DOMParser()
-
-          // // Parse the text
-          // const doc = parser.parseFromString(html, "text/html")
-
-          // // You can now even select part of that html as you would in the regular DOM
-          // // Example:
-          // // const docArticle = doc.querySelector('article').innerHTML
-
-          console.log(html)
-        })
-        .catch(error => {
-          console.error('Failed to fetch page: ', error)
-        })
+      let prodObj = {
+        type: 'CONTENT_BACKGROUND',
+        title: '',
+        queryPartReadable: '',
+        URL: 'https://www.finn.no/bap/forsale/search.html?category=0.78&q=EKTORP+2-seters+sofa&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
+        searchSite: 'FINN',
+        searchResults: null
       }
-
-      // URL object to assemble a search URL
-      const urlObject = {
-        category: 'category=0.78',
-        buying: 'for_rent=0',
-        q: 'q=',
-        lowestFirst: 'sort=PRICE_ASC',
-        forSale: 'trade_type=1',
-        giveAway: 'trade_type=2'
+      let regexes = {
+        FINN: /(?<=<meta name="description" content="Du finner )\d+/gmu
       }
-
-      getData('https://www.finn.no/bap/forsale/search.html?category=0.78&for_rent=0&q=billy+bokhylle+hvit+80+28+106&trade_type=1&trade_type=2')
+      prodArr=[]
+      function productSearch(prodObj) {
+        // hello FINN search
+        console.log(prodObj.URL)
+        fetch(prodObj.URL)
+          .then(response => {
+            // When the page is loaded convert it to text
+            return response.text()
+          })
+          .then(html => {
+            let hits = regexes.FINN.exec(html)
+            console.log('Hits: ' + hits)
+            prodObj.searchResults =  hits[0]
+            console.log(prodObj.searchResults)
+            // Notify if results
+            prodArr.push(prodObj)
+            console.log(JSON.stringify(prodArr, null, ' '))
+          })
+          .catch(error => {
+            console.error('Failed to fetch ' + prodObj.searchSite + ' page: ', error)
+          })
+      }
+      productSearch(prodObj)
     </script>
   </body>
 </html>
