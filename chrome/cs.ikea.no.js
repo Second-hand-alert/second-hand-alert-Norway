@@ -4,16 +4,12 @@
 // ###    D: function sendObj() - Send prodObj to background.js
 // ###    E: Execute extract + send
 
-// ###    ---------------------------------------------------------------    ###
 // ###    A: Make script work for Firefox and Chrome-based browsers          ###
-// ###                                                                       ###
 if (typeof browser === "undefined") {
   var browser = chrome
 }
 
-// ###    ---------------------------------------------------------------    ###
 // ###    B: ProductObject defined, to be sent to background.js              ###
-// ###                                                                       ###
 let prodObj = {
   type: 'CONTENT_BACKGROUND',
   title: '',
@@ -26,10 +22,8 @@ let prodObj = {
   searchResults: null
 }
 
-// ###    ---------------------------------------------------------------    ###
 // ###    C: function extractAndPrepareIkea() - Extract data from Ikea       ###
 // ###       and prepare object to be sent to background.js                  ###
-// ###                                                                       ###
 function extractAndPrepareIkea() {
   let regexStandard = /^.+?(?=, )/gmu
   let testMeasurement =  /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)/gmu
@@ -55,16 +49,14 @@ function extractAndPrepareIkea() {
   // Create queryPart to use in the actual query
   prodObj.queryPart = prodObj.queryPartReadable.replaceAll(' ', '+')
   // Create URL and delete key/values not needed
-  prodObj.URL = prodObj.urlPart1 + prodObj.queryPart + prodObj.urlPart2
+  prodObj.URL = encodeURI(prodObj.urlPart1 + prodObj.queryPart + prodObj.urlPart2)
   delete prodObj.queryPart
   delete prodObj.urlPart1
   delete prodObj.urlPart2
   console.log(JSON.stringify(prodObj, null, ' '))
 }
 
-// ###    ---------------------------------------------------------------    ###
 // ###    D: function sendObj() - Send prodObj to background.js              ###
-// ###                                                                       ###
 function sendObj(obj) {
   console.log('Sending object: ' + obj)
   const sending = browser.runtime.sendMessage(obj)
@@ -77,8 +69,6 @@ function sendObj(obj) {
     })
 }
 
-// ###    ---------------------------------------------------------------    ###
 // ###    E: Execute extract + send                                          ###
-// ###                                                                       ###
 extractAndPrepareIkea()
 sendObj(prodObj)

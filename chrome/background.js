@@ -5,6 +5,7 @@
 // ###    E: Search Finn, send response to popup script and notify if        ###
 // ###       results                                                         ###
 // ###    F: Listener to message from content scripts                        ###
+// ###    G: Hello background! Just checking                                 ###
 
 // ###    Example of object that is sent from content-script:                ###
 // let prodObj = {
@@ -55,26 +56,11 @@ function productSearch(prodObj) {
     .then(html => {
       let hits = regexes.FINN.exec(html)
       console.log(html)
-      if (Array.isArray(hits)) {
-        console.log('\'Hits\' is an array')
-      } else {
-        console.log('\'Hits\' is NOT an array')
-        console.log(JSON.stringify(hits))
-        // hits = regexes.FINN.exec(html)
-      }
       console.log('Hits: ' + hits)
-      console.log(JSON.stringify(hits))
-      // chech again if hits is an array
-      // if (Array.isArray(hits)) {
-      //   console.log('\'Hits\' is an array')
-      // } else {
-      //   console.log('\'Hits\' is NOT an array')
-      //   console.log(JSON.stringify(hits))
-      // }
       prodObj.searchResults =  Number(hits[0])
       console.log(JSON.stringify(prodObj, null, ' '))
-      // Notify if results
       prodArr.push(prodObj)
+      // Notify if results
       if (prodObj.searchResults > 0) {
         notifyBrowser(prodObj)
       }
@@ -82,16 +68,10 @@ function productSearch(prodObj) {
     })
     .catch(error => {
       console.error('Failed to fetch ' + prodObj.searchSite + ' page: ', error)
-      // Check if pager returned actually failed or not, if possible. If not, do regex
     })
 }
 
 // ###    F: Listener to message from content scripts                        ###
-// chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-//   if(message.popupOpen) { /* do your stuff */ }
-// });
-
-
 function handleMessages(obj, sender, sendResponse) {
   // console.log('Reciving product object: ' + JSON.stringify(obj, null, '  '))
   console.log('Type: ' + obj.type)
@@ -106,18 +86,7 @@ function handleMessages(obj, sender, sendResponse) {
     console.log('Not a recognisable message from either content or popup.')
   }
 }
-
 browser.runtime.onMessage.addListener(handleMessages)
 
-// // background-script.js
-// function handleMessage(request, sender, sendResponse) {
-//   console.log(`A content script sent a message: ${request.greeting}`);
-//   sendResponse({ response: "Response from background script" });
-// }
-
-// browser.runtime.onMessage.addListener(handleMessage);
-
-
-
-// ###    X: Hello background! Just checking                                 ###
+// ###    G: Hello background! Just checking                                 ###
 console.log('Hello background.js')

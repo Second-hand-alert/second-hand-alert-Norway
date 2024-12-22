@@ -8,7 +8,7 @@ function format(arr) {
     let objHTML = `
       <div class="searchItem">
         <h2><a target="_blank" href="${arr[i].URL}">${arr[i].title}</a></h2>
-        <p class="searchHits">${arr[i].searchResults} treff p&aring; ${arr[i].searchSite} med s&oslash;k p&aring;:<br/>'${arr[i].queryPartReadable}'</p>
+        <p class="searchHits"><em>${arr[i].searchResults}</em> treff p&aring; ${arr[i].searchSite} med s&oslash;k p&aring;:<br/>'${arr[i].queryPartReadable}'</p>
       </div>
     `
     // console.log(arr[i]);
