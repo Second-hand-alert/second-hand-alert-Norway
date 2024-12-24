@@ -10,11 +10,10 @@
     "64": "./img/icon64.png",
     "128": "./img/icon128.png"
   },
-  "background":{
-      "service_worker":"background.js",
-      "type": "module"
+  "background": {
+    "scripts": ["background.js"]
   },
-  "permissions":["storage","tabs","notifications", "activeTab", "background"],
+  "permissions":["storage", "tabs", "notifications", "activeTab", "background"],
   "action": {
     "default_popup": "./popup.html",
     "default_icon": "./img/icon48.png"

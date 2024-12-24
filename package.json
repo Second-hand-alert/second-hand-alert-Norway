@@ -1,8 +1,8 @@
 {
   "name": "used-alternative-alert",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Browser extension to give you second hand/used alternatives to new products when shopping.",
-  "main": "index.html",
+  "main": "./dist/background.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/eklem/used-alternative#readme",
   "devDependencies": {
-    "cheerio": "^1.0.0",
-    "rollup": "^4.24.4"
+    "standard": "^17.1.2"
   }
 }

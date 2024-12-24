@@ -10,14 +10,25 @@ When in store.com, notify you if there is a used alternative at secondhand-store
 
 ## Moving parts
 
-### Packaging / bundling
+### Preparing, Packaging and Publishing
 
-* [Rollup](https://rollupjs.org/es-module-syntax/#importing)
-* Extension packager (Chrome, Firefox)
+#### Chrome
+
+[How to pack it (using zip)](https://developer.chrome.com/docs/webstore/prepare). Chrome webstore [Before you publish](https://developer.chrome.com/docs/webstore) have some pointers. And there is a [Chrome extension develop guide](https://developer.chrome.com/docs/extensions/develop).
+
+#### Firefox
+
+Need to install [web-ext](https://extensionworkshop.com/extension-basics/): `sudo npm install --global web-ext`. Also some pointers on how to make it work on Firefox for Android.
+
+#### Safari OSX/iOS
+
+Need to use [Xcode](https://developer.apple.com/documentation/safariservices/developing-a-safari-web-extension), but maybe it can be done on something that is inherited from main here.
 
 ### Browser extension (Chrome first)
 
 * [Content script](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts)
+* Background script
+* Popup script and page
 * [manifest.json](https://developer.chrome.com/docs/extensions/reference/manifest)
 * ...
 
@@ -43,7 +54,7 @@ The notification part needs a [service worker](https://developer.mozilla.org/en-
 
 [fetchAPI](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
-### Scrape content from a HTML page
+### Get content from a HTML page
 
-[Cheerio](https://github.com/cheeriojs/cheerio)
+Using built in dom-parser and regex
 
