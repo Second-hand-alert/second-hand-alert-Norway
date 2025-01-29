@@ -26,7 +26,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
-    background-color: #f6f6f6;
 }
 ol, ul {
     list-style: none;
@@ -49,10 +48,11 @@ table {
 html {
   min-height: 400px;
   min-width: 400px;
-  border: 1px solid #cecece;
+  /* border: 1px solid #cecece; */
 }
 
 body {
+  background-color: #f6f6f6;
   font-family: "Roboto", serif;
   font-weight: 300;
   font-style: normal;
@@ -61,8 +61,11 @@ body {
 }
 
 header {
-  background-color:#cccccc;
+  background-color:#ffffaa;
   padding:0.6em 1em;
+  position: sticky;
+  top: 0px;
+  filter: drop-shadow(#3d3d3d 0px -20px 25px);
 }
 div#list {
   padding:1em;
@@ -75,12 +78,14 @@ em {
 h1 {
   font-size:1.3em;
   font-weight:400;
+  color:#3D3D3D;
 }
 .country {
-  color:#666666;
+  font-weight:300;
+  padding-left: 0.8em;
 }
 img {
-  vertical-align:middle;
+  vertical-align:sub;
 }
 
 h2 {
@@ -96,4 +101,8 @@ h1, h2 {
 
 div.searchItem {
   margin-bottom:1em;
+}
+
+.productName {
+  font-size:0.9em;
 }

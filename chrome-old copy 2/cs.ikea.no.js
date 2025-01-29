@@ -5,12 +5,10 @@
 // ###    E: Execute extract + send
 
 // ###    A: Make script work for Firefox and Chrome-based browsers          ###
-if (typeof browser === "undefined") {
-  var browser = chrome
-}
+const browser = chrome
 
 // ###    B: ProductObject defined, to be sent to background.js              ###
-let prodObj = {
+const prodObj = {
   type: 'CONTENT_BACKGROUND',
   title: '',
   queryPartReadable: '',
@@ -18,32 +16,36 @@ let prodObj = {
   URL: '',
   urlPart1: 'https://www.finn.no/bap/forsale/search.html?category=0.78&q=',
   urlPart2: '&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
+  site: 'IKEA',
   searchSite: 'FINN',
-  searchResults: null
+  searchResults: null,
+  timeStamp: null
 }
 
 // ###    C: function extractAndPrepareIkea() - Extract data from Ikea       ###
 // ###       and prepare object to be sent to background.js                  ###
-function extractAndPrepareIkea() {
-  let regexStandard = /^.+?(?=, )/gmu
-  let testMeasurement =  /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)/gmu
-  let regexMeasurement = /\d\d+/gmu
+function extractAndPrepareIkea () {
+  const regexStandard = /^.+?(?=, )/gmu
+  const testMeasurement = /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)/gmu
+  const regexMeasurement = /[\d\d+]+/gu
 
-  prodObj.title = document.getElementsByTagName("title")[0].innerHTML
+  prodObj.title = document.getElementsByTagName('title')[0].innerHTML
   prodObj.queryPartReadable = regexStandard.exec(prodObj.title)
 
   // Check if measurement in title
   if (testMeasurement.test(prodObj.title)) {
-    let measurement = []
+    const measurement = []
     let i
     // Populate measurement with all matches
-    while (i = regexMeasurement.exec(prodObj.title)) {
-        i.forEach((match) => {
-          measurement.push(match)
-        })
-      }
-    prodObj.queryPartReadable.push(...measurement)  
+    while ((i = regexMeasurement.exec(prodObj.title)) !== null) {
+      i.forEach((match) => {
+        console.log('measurement: ' + match)
+        measurement.push(match)
+      })
+    }
+    prodObj.queryPartReadable.push(...measurement)
   }
+  prodObj.timeStamp = Date.now()
   // Populate queryPart, join to string with '+'
   prodObj.queryPartReadable = prodObj.queryPartReadable.join(' ')
   // Create queryPart to use in the actual query
@@ -57,7 +59,7 @@ function extractAndPrepareIkea() {
 }
 
 // ###    D: function sendObj() - Send prodObj to background.js              ###
-function sendObj(obj) {
+function sendObj (obj) {
   console.log('Sending object: ' + obj)
   const sending = browser.runtime.sendMessage(obj)
   sending

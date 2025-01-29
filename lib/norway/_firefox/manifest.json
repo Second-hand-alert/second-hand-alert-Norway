@@ -13,7 +13,7 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "permissions":["storage", "tabs", "notifications", "activeTab", "background"],
+  "permissions":["notifications", "storage",  "activeTab", "background"],
   "action": {
     "default_popup": "./popup.html",
     "default_icon": "./img/icon48.png"
