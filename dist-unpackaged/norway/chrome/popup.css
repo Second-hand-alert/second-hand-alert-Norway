@@ -26,7 +26,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
-    background-color: #f6f6f6;
 }
 ol, ul {
     list-style: none;
@@ -49,11 +48,13 @@ table {
 html {
   min-height: 400px;
   min-width: 400px;
-  border: 1px solid #cecece;
+  /* border: 1px solid #cecece; */
 }
 
 body {
-  font-family: "Roboto", serif;
+  background-color: #f6f6f6;
+  font-family: "IBM Plex Sans", serif;
+  font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
   line-height:1.5em;
@@ -61,11 +62,14 @@ body {
 }
 
 header {
-  background-color:#cccccc;
+  background-color:#ffffaa;
   padding:0.6em 1em;
+  position: sticky;
+  top: 0px;
+  filter: drop-shadow(#3d3d3d 0px -20px 25px);
 }
 div#list {
-  padding:1em;
+  padding:1.5em;
 }
 
 em {
@@ -74,20 +78,25 @@ em {
 
 h1 {
   font-size:1.3em;
-  font-weight:400;
+  font-weight:500;
+  color:#3D3D3D;
 }
 .country {
+  font-weight:400;
+  padding-left: 0.8em;
   color:#666666;
 }
 img {
-  vertical-align:middle;
+  vertical-align:sub;
 }
 
 h2 {
+  font-family: "IBM Plex Sans", serif;
   font-size:1.1em;
   line-height:1.4em;
   font-weight:400;
   margin-bottom:0.2em;
+  color:#666666;
 }
 
 h1, h2 {
@@ -95,5 +104,25 @@ h1, h2 {
 }
 
 div.searchItem {
-  margin-bottom:1em;
+  margin-bottom:1.5em;
+}
+
+.productName {
+  font-size:0.9em;
+}
+.searchHits {
+  padding-left:20px;
+}
+
+a:link {
+  color: blue;
+}
+a:visited {
+  color: #3d3d3d;
+}
+a:hover {
+  color: #000000;
+}
+a:active {
+  color: #000000;
 }
