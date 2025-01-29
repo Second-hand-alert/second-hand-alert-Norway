@@ -8,7 +8,7 @@
 const browser = chrome
 
 // ###    B: ProductObject defined, to be sent to background.js              ###
-const prodObj = {
+let prodObjIkea = {
   type: 'CONTENT_BACKGROUND',
   title: '',
   queryPartReadable: '',
@@ -24,7 +24,7 @@ const prodObj = {
 
 // ###    C: function extractAndPrepareIkea() - Extract data from Ikea       ###
 // ###       and prepare object to be sent to background.js                  ###
-function extractAndPrepareIkea () {
+function extractAndPrepareIkea (prodObj) {
   const regexStandard = /^.+?(?=, )/gmu
   const testMeasurement = /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)/gmu
   const regexMeasurement = /[\d\d+]+/gu
@@ -56,6 +56,7 @@ function extractAndPrepareIkea () {
   delete prodObj.urlPart1
   delete prodObj.urlPart2
   console.log(JSON.stringify(prodObj, null, ' '))
+  return prodObj
 }
 
 // ###    D: function sendObj() - Send prodObj to background.js              ###
@@ -72,5 +73,5 @@ function sendObj (obj) {
 }
 
 // ###    E: Execute extract + send                                          ###
-extractAndPrepareIkea()
-sendObj(prodObj)
+prodObjIkea = extractAndPrepareIkea(prodObjIkea)
+sendObj(prodObjIkea)

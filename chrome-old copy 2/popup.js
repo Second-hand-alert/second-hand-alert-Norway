@@ -38,6 +38,6 @@ function handleMessage (obj, sender, sendResponse) {
 }
 
 // Trigger script when opened
-sendMessage()
 browser.runtime.onMessage.addListener(handleMessage)
+sendMessage()
 console.log('Hello popup.js!')

@@ -10,6 +10,8 @@
     ]
   },
   "scripts": {
+    "build": "rollup --config",
+    "copy": "cp ./lib/norway/chrome/manifest.json ./dist-unpackaged/norway/chrome/ && cp ./lib/popup.* ./dist-unpackaged/norway/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/norway/chrome/img/",
     "test": "standard 'lib/*.js'"
   },
   "repository": {
@@ -28,6 +30,7 @@
   "homepage": "https://github.com/eklem/used-alternative#readme",
   "devDependencies": {
     "playwright": "^1.49.1",
+    "rollup": "^4.32.1",
     "standard": "^17.1.2"
   }
 }
