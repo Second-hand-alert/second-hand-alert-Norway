@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "rollup --config",
-    "copy": "cp ./lib/norway/chrome/manifest.json ./dist-unpackaged/norway/chrome/ && cp ./lib/popup.* ./dist-unpackaged/norway/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/norway/chrome/img/",
+    "copy": "cp ./lib/norway/chrome/manifest.json ./dist-unpackaged/norway/chrome/ && cp ./lib/popup.* ./dist-unpackaged/norway/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/norway/chrome/img/ && cp ./lib/norway/firefox/manifest.json ./dist-unpackaged/norway/firefox/ && cp ./lib/popup.* ./dist-unpackaged/norway/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/norway/firefox/img/",
     "test": "standard 'lib/*.js'"
   },
   "repository": {
