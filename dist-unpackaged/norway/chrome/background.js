@@ -43,6 +43,26 @@
     browser$1.notifications.create(options);
   }
 
+  function removeDuplicates (list) {
+    list = list.reverse();
+    const URLS = list.map(({ URL }) => URL);
+    let filtered = list.filter(({ URL }, index) => !URLS.includes(URL, index + 1));
+    filtered = filtered.reverse();
+    return filtered
+  }
+
+  function cutoffList (list) {
+    if (list.length > 50) {
+      console.log('list is longer than 10');
+      list = list.reverse();
+      list = list.slice(0, 50);
+      list = list.reverse();
+    } else {
+      console.log('list is 10 or shorter');
+    }
+    return list
+  }
+
   // ###    D: Search Finn, send response to popup script and notify if        ###
   // ###       results                                                         ###
   function productSearch (prodObj) {
@@ -87,7 +107,9 @@
           browser$1.storage.local.set({ searchArr: [prodObj] });
         } else {
           keyValueStore.searchArr.push(prodObj);
-          const searchArr = keyValueStore.searchArr;
+          let searchArr = keyValueStore.searchArr;
+          searchArr = removeDuplicates(searchArr);
+          searchArr = cutoffList(searchArr);
           browser$1.storage.local.set({ searchArr });
         }
       })

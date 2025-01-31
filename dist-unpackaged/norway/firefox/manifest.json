@@ -22,10 +22,6 @@
     {
       "matches": ["*://*.ikea.com/no/no/p*"],
       "js": ["cs.ikea.no.js"]
-    },
-    {
-      "matches": ["*://*.polarnopyret.no/*"],
-      "js": ["cs.polarnopyret.no.js"]
     }
   ]
 }

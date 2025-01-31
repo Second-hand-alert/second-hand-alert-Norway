@@ -66,7 +66,7 @@ header {
   padding:0.6em 1em;
   position: sticky;
   top: 0px;
-  filter: drop-shadow(#3d3d3d 0px -10px 15px);
+  filter: drop-shadow(#3d3d3d 0px -5px 8px);
 }
 div#list {
   padding:1.5em;
@@ -94,7 +94,7 @@ h2 {
   font-family: "IBM Plex Sans", serif;
   font-size:1.1em;
   line-height:1.4em;
-  font-weight:400;
+  font-weight:500;
   margin-bottom:0.2em;
   color:#777777;
 }
