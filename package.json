@@ -13,6 +13,7 @@
   "scripts": {
     "build": "rollup --config",
     "copy": "cp ./lib/norway/chrome/manifest.json ./dist-unpackaged/norway/chrome/ && cp ./lib/popup.* ./dist-unpackaged/norway/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/norway/chrome/img/ && cp ./lib/norway/firefox/manifest.json ./dist-unpackaged/norway/firefox/ && cp ./lib/popup.* ./dist-unpackaged/norway/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/norway/firefox/img/",
+    "zip-chrome": "cd ./dist-unpackaged/norway/chrome/ && bestzip ../../../dist/norway/norway-chrome-build.zip *",
     "test": "standard 'lib/*.js'"
   },
   "repository": {
@@ -32,6 +33,7 @@
   "devDependencies": {
     "playwright": "^1.49.1",
     "rollup": "^4.32.1",
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "bestzip": "^2.2.1"
   }
 }

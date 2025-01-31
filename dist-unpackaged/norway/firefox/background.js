@@ -44,21 +44,17 @@
   }
 
   function removeDuplicates (list) {
-    list = list.reverse();
-    const URLS = list.map(({ URL }) => URL);
-    let filtered = list.filter(({ URL }, index) => !URLS.includes(URL, index + 1));
-    filtered = filtered.reverse();
+    const filtered = list.filter((obj1, i, array) =>
+      array.findLastIndex(obj2 => (obj2.URL === obj1.URL)) === i
+    );
     return filtered
   }
 
   function cutoffList (list) {
     if (list.length > 50) {
-      console.log('list is longer than 10');
       list = list.reverse();
       list = list.slice(0, 50);
       list = list.reverse();
-    } else {
-      console.log('list is 10 or shorter');
     }
     return list
   }

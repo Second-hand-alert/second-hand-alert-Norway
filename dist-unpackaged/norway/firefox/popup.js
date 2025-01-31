@@ -8,21 +8,29 @@
   function format (arr) {
     // need an if-statement to check if arr.response === null, and then make a placeholder HTML to draw
     console.log('array to format: ' + JSON.stringify(arr, null, ' '));
-    arr = arr.reverse();
     let HTML = '';
-
-    for (let i = 0; i < arr.length; i++) {
-      const objHTML = `
+    if (arr === null) {
+      HTML = `
       <div class="searchItem">
-        <h2>${arr[i].title}</h2>
-        <p class="searchHits"><em>${arr[i].searchResults}</em> produkter p&aring; ${arr[i].searchSite}:<br /><a target="_blank" href="${arr[i].URL}">${arr[i].queryPartReadable}</a></p>
+        <h2>Her kommer produktlinker til brukte alternativer når vi finner det.</h2>
       </div>
     `;
-      HTML += (objHTML);
-
-      const list = document.getElementById('list');
-      list.innerHTML = HTML;
+    } else if (arr !== null) {
+      if (arr.length > 1) {
+        arr.reverse();
+      }
+      for (let i = 0; i < arr.length; i++) {
+        const objHTML = `
+        <div class="searchItem">
+          <h2>${arr[i].title}</h2>
+          <p class="searchHits"><em>${arr[i].searchResults}</em> produkter p&aring; ${arr[i].searchSite}:<br /><a target="_blank" href="${arr[i].URL}">${arr[i].queryPartReadable}</a></p>
+        </div>
+      `;
+        HTML += (objHTML);
+      }
     }
+    const list = document.getElementById('list');
+    list.innerHTML = HTML;
   }
 
   function sendMessage () {
