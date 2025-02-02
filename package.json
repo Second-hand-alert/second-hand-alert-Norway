@@ -31,9 +31,12 @@
   },
   "homepage": "https://github.com/eklem/used-alternative#readme",
   "devDependencies": {
+    "@arrow-js/core": "^1.0.0-alpha.10",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "bestzip": "^2.2.1",
     "playwright": "^1.49.1",
     "rollup": "^4.32.1",
     "standard": "^17.1.2",
-    "bestzip": "^2.2.1"
+    "web-ext": "^8.3.0"
   }
 }

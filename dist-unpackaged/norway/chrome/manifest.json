@@ -14,7 +14,11 @@
       "service_worker":"./background.js",
       "type": "module"
   },
-  "permissions": ["notifications", "storage", "activeTab", "background"],
+  "permissions":[
+    "activeTab",
+    "notifications",
+    "storage"
+  ],
   "action": {
     "default_popup": "./popup.html",
     "default_icon": "./img/icon48.png"
