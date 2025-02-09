@@ -1,4 +1,5 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import outputManifest from 'rollup-plugin-output-manifest';
 
 export default [
   {

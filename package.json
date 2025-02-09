@@ -1,6 +1,6 @@
 {
   "name": "used-alternative-alert",
-  "version": "0.1.1",
+  "version": "0.5.0",
   "description": "Browser extension to give you second hand/used alternatives to new products when shopping.",
   "main": "./lib/lib.background.js",
   "type": "module",
@@ -11,10 +11,10 @@
     ]
   },
   "scripts": {
-    "build": "rollup --config",
-    "copy": "cp ./lib/norway/chrome/manifest.json ./dist-unpackaged/norway/chrome/ && cp ./lib/popup.* ./dist-unpackaged/norway/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/norway/chrome/img/ && cp ./lib/norway/firefox/manifest.json ./dist-unpackaged/norway/firefox/ && cp ./lib/popup.* ./dist-unpackaged/norway/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/norway/firefox/img/",
+    "manifest": "node ./lib/norway/chrome/manifest.js --experimental-json-modules && node lib/norway/firefox/manifest.js --experimental-json-modules",
+    "build": "npm run manifest && rollup --config && cp ./lib/norway/chrome/manifest.json ./dist-unpackaged/norway/chrome/ && cp ./lib/popup.* ./dist-unpackaged/norway/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/norway/chrome/img/ && cp ./lib/norway/firefox/manifest.json ./dist-unpackaged/norway/firefox/ && cp ./lib/popup.* ./dist-unpackaged/norway/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/norway/firefox/img/",
     "zip-chrome": "cd ./dist-unpackaged/norway/chrome/ && bestzip ../../../dist/norway/norway-chrome-build.zip *",
-    "test": "standard 'lib/*.js'"
+    "test": "npm run build && standard './lib/*.js'"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "bestzip": "^2.2.1",
     "playwright": "^1.49.1",
+    "rollup-plugin-output-manifest": "^2.0.0",
     "rollup": "^4.32.1",
     "standard": "^17.1.2",
     "web-ext": "^8.3.0"
