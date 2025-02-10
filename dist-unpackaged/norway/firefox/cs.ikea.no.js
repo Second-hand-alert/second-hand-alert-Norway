@@ -41,9 +41,8 @@
       prodObj.queryPartReadable.push(...measurement);
     }
     prodObj.timeStamp = Date.now();
-    prodObj.queryPartReadable = prodObj.queryPartReadable.join(' ');
     // Populate queryPart, join to string with '+'
-    prodObj.queryPartReadable = prodObj.queryPartReadable + ' ' + prodObj.site;
+    prodObj.queryPartReadable = prodObj.queryPartReadable.join(' ');
     // Create queryPart to use in the actual query
     prodObj.queryPart = prodObj.queryPartReadable.replaceAll(' ', '+');
     // Create URL and delete key/values not needed
