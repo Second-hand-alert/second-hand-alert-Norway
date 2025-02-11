@@ -1,8 +1,6 @@
 # About
 
-**Alert when second hand alternative is available!**
-
-Second-hand alternative alert. Browser addon to give you an alert when second hand/used alternatives to new products are available.
+The browser extension gives you an alert when second hand/used alternatives to new products are available. Browse a connected store and get get a link to a second-hand alternative when available.
 
 ## Countries
 
@@ -10,12 +8,15 @@ Each browser extension is for a set of stores and second-hand stores in one spec
 
 ### Norway
 
-* Ikea.no will show alert and show alternative products on Finn.no
-* 
+Connected stores:
+
+* **Furniture:** [IKEA.no](https://www.ikea.com/no/no/) connects to [FINN.no](https://www.finn.no/)
+* **Books:** [Norli](https://www.norli.no/), [Ark](https://www.ark.no/), [AdLibris](https://www.adlibris.com/nb), [Bokkilden](https://www.bokkilden.no/) and [Akademika](https://www.akademika.no/) connects to [Bookis.com/no](https://bookis.com/no)
+* **Childrens clothes:** [Polarn O. Pyret]() and [Reima](https://www.reima.com/nb-NO) points to [FINN.no](https://www.finn.no/)
 
 ## Installation
 
-### Chrome for desktop,
+### Chrome for desktop
 
 [comming soon]
 
