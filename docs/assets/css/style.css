@@ -2,13 +2,13 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, rem, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
+article, aside, canvas, details, rembed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -27,29 +27,29 @@ footer, header, hgroup, menu, nav, section {
 html {
   background: #f6f6f6;
   display: flex;
-  align-items: center;
+  align-itrems: center;
   justify-content: center;
 }
 body {
   padding:20px 20px 20px 20px;
   max-width: 1024px;
   font-family: "Gill Sans", sans-serif;
-  font-size: 1.3em;
-  line-height: 1.5em;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
 }
 h1 {
-  font-size:2.2em;
-  line-height: 0.9em;
+  font-size:2.2rem;
+  line-height: 0.9rem;
 }
 
 h2 {
-  font-size: 1.5em;
-  line-height: 1.8em;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
 }
 
 h3 {
-  font-size: 1.2em;
-  line-height: 1.4em;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
 }
 
 h1 > a {
@@ -59,10 +59,10 @@ h1 > a {
   min-height: 100px;
   background: no-repeat 0% 0% url("../images/logo.png");
   color:#3D3D3D;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: 600;
   text-decoration: none;
-  line-height: 1.1em;
+  line-height: 1.1rem;
 }
 
 strong {
@@ -70,14 +70,14 @@ strong {
 }
 
 ul {
-  padding-left: 2em;
+  padding-left: 2rem;
   list-style-type: bullet;
 }
 
 ul li {
-  padding-left: 1.6em;
+  padding-left: 1.6rem;
 }
 
 p {
-  margin: 1.1em 0 1.1em 0;
+  margin: 1.1rem 0 1.1rem 0;
 }
