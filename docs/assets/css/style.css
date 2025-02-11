@@ -41,4 +41,7 @@ h1 > a {
   display: block;
   height: 100px;
   background: no-repeat 0% 50% url("../images/logo.png");
+  color:#3D3D3D;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 3em;
 }
