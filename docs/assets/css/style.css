@@ -38,7 +38,7 @@ body {
   line-height: 1.5em;
 }
 h1 {
-  font-size:2em;
+  font-size:2.2em;
   line-height: 0.9em;
 }
 
@@ -62,7 +62,7 @@ h1 > a {
   font-size: 2em;
   font-weight: 600;
   text-decoration: none;
-  /* line-height:0.9em; */
+  line-height: 1.1em;
 }
 
 strong {
@@ -76,4 +76,8 @@ ul {
 
 ul li {
   padding-left: 2rem;
+}
+
+p {
+  margin: 2em;
 }
