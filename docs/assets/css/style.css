@@ -34,12 +34,21 @@ body {
   padding:20px 20px 20px 20px;
   max-width: 1024px;
   font-family: "Gill Sans", sans-serif;
-  font-size: 1.1em;
+  font-size: 1.3em;
   line-height: 1.5em;
 }
 h1 {
   font-size:2em;
 }
+
+h2 {
+  font-size:1.6em;
+}
+
+h3 {
+  font-size:1.4em;
+}
+
 h1 > a {
   margin: 20px 0 20px 0;
   padding: 20px 0 20px 120px;
@@ -47,8 +56,21 @@ h1 > a {
   min-height: 100px;
   background: no-repeat 0% 0% url("../images/logo.png");
   color:#3D3D3D;
-  font-size: 2.2em;
-  font-weight: 550;
+  font-size: 2em;
+  font-weight: 600;
   text-decoration: none;
   line-height:0.9em;
+}
+
+strong {
+  font-weight: 600;
+}
+
+ul {
+  padding-left: 2em;
+  list-style-type: bullet;
+}
+
+ul li {
+  padding-left: 2rem;
 }
