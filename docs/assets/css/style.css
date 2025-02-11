@@ -27,7 +27,7 @@ footer, header, hgroup, menu, nav, section {
 html {
   background: #f6f6f6;
   display: flex;
-  align-itrems: center;
+  align-items: center;
   justify-content: center;
 }
 body {
@@ -40,16 +40,19 @@ body {
 h1 {
   font-size:2.2rem;
   line-height: 0.9rem;
+  margin: 0 0 1.5rem 0;
 }
 
 h2 {
   font-size: 1.5rem;
   line-height: 1.8rem;
+  margin: 0 0 1.3rem 0;
 }
 
 h3 {
   font-size: 1.2rem;
   line-height: 1.4rem;
+  margin: 0 0 1.2rem 0;
 }
 
 h1 > a {
@@ -63,6 +66,7 @@ h1 > a {
   font-weight: 600;
   text-decoration: none;
   line-height: 1.1rem;
+  margin: 0 0 1.5rem 0;
 }
 
 strong {
@@ -72,6 +76,7 @@ strong {
 ul {
   padding-left: 2rem;
   list-style-type: bullet;
+  margin: 1.5rem 0 1.5rem 0;
 }
 
 ul li {
@@ -79,5 +84,5 @@ ul li {
 }
 
 p {
-  margin: 1.1rem 0 1.1rem 0;
+  margin: 1.5rem 0 1.5rem 0;
 }
