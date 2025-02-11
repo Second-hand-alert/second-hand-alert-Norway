@@ -34,7 +34,7 @@ body {
   background: #f6f6f6;
   padding:20px 20px 20px 20px;
   max-width: 1024px;
-  height:100%;
+  height: stretch;
   font-family: "Gill Sans", sans-serif;
 }
 h1 {
