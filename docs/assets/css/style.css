@@ -42,7 +42,7 @@ h1 {
 }
 h1 > a {
   margin: 20px 0 20px 0;
-  padding: 0 0 0 120px;
+  padding: 20px 0 20px 120px;
   display: block;
   min-height: 100px;
   background: no-repeat 0% 0% url("../images/logo.png");
@@ -50,4 +50,5 @@ h1 > a {
   font-size: 2.2em;
   font-weight: 550;
   text-decoration: none;
+  line-height:0.9em;
 }
