@@ -5,7 +5,7 @@
 ```console
 npm install
 npm run build
-npm zip-chrome
+npm run package
 ```
 
 ## Structure
@@ -14,19 +14,19 @@ The build process is mostly rollup, but the different versions of manifest.json 
 
 ## Tools used (dev-dependencies)
 
-* "@arrow-js/core": "^1.0.0-alpha.10"
+* `"@arrow-js/core": "^1.0.0-alpha.10"`
   To populate popup.html with content. Bundled together with lib.popup.js to become popup.js
-* "@rollup/plugin-node-resolve": "^16.0.0"
+* `"@rollup/plugin-node-resolve": "^16.0.0"`
    Rollup-plugin for popup.js
-* "bestzip": "^2.2.1"
+* `"bestzip": "^2.2.1"`
   Packing extension for Chrome
-* "playwright": "^1.49.1"
+* `"playwright": "^1.49.1"`
   Automated testing of browser extension.
-* rollup": "^4.32.1"
+* `rollup": "^4.32.1"`
   Bundling tool for content.js, background.js and popup.js
-* "standard": "^17.1.2"
+* `"standard": "^17.1.2"`
   Used for ensuring good coding practice
-* "web-ext": "^8.3.0"
+* `"web-ext": "^8.3.0"`
   Testing and packing extension for Firefox
 
 
