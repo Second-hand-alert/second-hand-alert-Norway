@@ -103,7 +103,6 @@ p {
 
 code.highlighter-rouge {
   background:#e0e0e0;
-  white-space: preserve nowrap;
   font-family: 'Courier New', Courier, monospace;
   border-radius: 2px;
   padding:2px;
@@ -115,6 +114,9 @@ code.highlighter-rouge {
   }
   body {
     padding:20px 20px 20px 20px;
+  }
+  code.highlighter-rouge {
+    white-space: preserve nowrap;
   }
 }
 @media screen and (max-width: 799px) {
