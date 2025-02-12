@@ -87,15 +87,16 @@ p {
   margin: 1.4rem 0 1.6rem 0;
 }
 
-.highlight-text-shell-session {
+.highlight {
   background-color:#eeeeee;
   color:#0550ae;
-  font-family: 'Courier New', Courier, monospace;
   border-radius: 30px;
+  padding:2rem;
 }
 
-.highlight-text-shell-session > pre {
+.highlight > pre {
   overflow-x: scroll;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 @media screen and (max-width: 600px) {
