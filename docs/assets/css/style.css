@@ -67,6 +67,7 @@ h2 {
 
 h3 {
   font-size: 1.6rem;
+  font-weight: 500;
   line-height: 1.4rem;
   margin: 1.7rem 0 1.3rem 0;
 }
@@ -91,7 +92,7 @@ p {
 }
 
 .language-console {
-  background-color:#eeeeee;
+  background-color:#e0e0e0;
   color:#0550ae;
   border-radius: 4px;
   padding:0.8rem;
@@ -103,7 +104,7 @@ p {
 }
 
 code.highlighter-rouge {
-  background:#eeeeee;
+  background:#e0e0e0;
   white-space: preserve nowrap;
   font-family: 'Courier New', Courier, monospace;
   border-radius: 2px;
