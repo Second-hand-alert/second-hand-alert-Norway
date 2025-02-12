@@ -87,15 +87,15 @@ p {
   margin: 1.4rem 0 1.6rem 0;
 }
 
-.highlight {
+.language-console {
   background-color:#eeeeee;
   color:#0550ae;
-  border-radius: 30px;
-  padding:2rem;
+  border-radius: 2px;
+  padding:0.8rem;
+  overflow-x: scroll;
 }
 
 .highlight > pre {
-  overflow-x: scroll;
   font-family: 'Courier New', Courier, monospace;
 }
 
