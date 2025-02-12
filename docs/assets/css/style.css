@@ -119,8 +119,10 @@ code.highlighter-rouge {
     margin: 0.8rem 0 1.5rem 0;
     padding: 13px 0 20px 90px;
   }
-  body {
+  html {
     max-width: 780px;
+  }
+  body {
     margin: 0 10px 0 10px
   }
   pre {
