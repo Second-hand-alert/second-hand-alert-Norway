@@ -100,10 +100,11 @@ p {
 }
 
 code.highlighter-rouge {
-  background:#0550ae;
+  background:#eeeeee;
   white-space: preserve nowrap;
   font-family: 'Courier New', Courier, monospace;
   border-radius: 2px;
+  padding:2px;
 }
 
 @media screen and (max-width: 800px) {
