@@ -110,22 +110,26 @@ code.highlighter-rouge {
 }
 
 @media screen and (min-width: 800px) {
+  html {
+    width: 800px;
+  }
   body {
     padding:20px 20px 20px 20px;
-    width: 800px;
   }
 }
 @media screen and (max-width: 799px) {
+  html {
+    max-width: 799px;
+  }
+  body {
+    padding:10px 10px 10px 10px;
+  }
   h1 > a {
     font-size: 2.8rem;
     line-height: 3.2rem;
     background-size: 70px 70px;
     margin: 0.8rem 0 1.5rem 0;
     padding: 13px 0 20px 90px;
-  }
-  body {
-    padding:10px 10px 10px 10px;
-    max-width: 799px;
   }
   pre {
     font-size: 1.1rem;
