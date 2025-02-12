@@ -99,7 +99,7 @@ p {
   font-family: 'Courier New', Courier, monospace;
 }
 
-code .highlighter-rouge {
+code.highlighter-rouge {
   background:#0550ae;
   white-space: preserve nowrap;
   font-family: 'Courier New', Courier, monospace;
