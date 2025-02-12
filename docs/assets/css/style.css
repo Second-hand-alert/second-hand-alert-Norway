@@ -110,4 +110,7 @@ p {
   body {
     width:100%;
   }
+  pre {
+    font-size: 1.1rem;
+  }
 }
