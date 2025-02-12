@@ -108,7 +108,8 @@ p {
     padding: 13px 0 20px 90px;
   }
   body {
-    width:100%;
+    max-width: 780px;
+    margin: 0 10px 0 10px
   }
   pre {
     font-size: 1.1rem;
