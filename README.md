@@ -1,60 +1,30 @@
-# Second hand alert
+# Build documentation
 
-**Alert when second hand alternative is available!**
+## Install, build and package
 
-Second-hand alternative alert. Browser addon to give you an alert when second hand/used alternatives to new products are available.
+```console
+npm install
+npm run build
+npm run package
+```
 
-## Description
+## Structure
 
-When in store.com, notify you if there is a used alternative at secondhand-store.com.
+The build process is mostly rollup, but the different versions of manifest.json is a custom JavaScript thing. `./lib`-folder contains all functions and variables to build the browser extension for different browsers and countries. Files in `./lib/<country>/<browser>/` imports the correct functions and variables needed for rollup to build to `./dist-unpackaged/<country>/<browser>/`. zip-chrome and web-ext is used to package the browser extensions into the `./dist`-folder.
 
-## Moving parts
+## Tools used (dev-dependencies)
 
-### Preparing, Packaging and Publishing
-
-#### Chrome
-
-[How to pack it (using zip)](https://developer.chrome.com/docs/webstore/prepare). Chrome webstore [Before you publish](https://developer.chrome.com/docs/webstore) have some pointers. And there is a [Chrome extension develop guide](https://developer.chrome.com/docs/extensions/develop).
-
-#### Firefox
-
-Need to install [web-ext](https://extensionworkshop.com/extension-basics/): `sudo npm install --global web-ext`. Also some pointers on how to make it work on Firefox for Android.
-
-#### Safari OSX/iOS
-
-Need to use [Xcode](https://developer.apple.com/documentation/safariservices/developing-a-safari-web-extension), but maybe it can be done on something that is inherited from main here.
-
-### Browser extension (Chrome first)
-
-* [Content script](https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts)
-* Background script
-* Popup script and page
-* [manifest.json](https://developer.chrome.com/docs/extensions/reference/manifest)
-* ...
-
-You can define a content script for each 
-
-### Notification API
-
-The [notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API)
-
-To use notifications on mobile browsers, it seems you need to use [getNotifications()](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/getNotifications) and [showNotification()](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification) form a service worker. And the service worker need https.
-
-So i.e. [ngrok](https://ngrok.com/) needs to be set up like done on the [geo-search-helper repo](https://github.com/eklem/geo-search-helper?tab=readme-ov-file#set-up-ngrok-account).
-
-### Service worker
-
-The notification part needs a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
-
-### Analytics
-
-[Plausible.io](https://plausible.io/)
-
-### Get data from FINN
-
-[fetchAPI](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-
-### Get content from a HTML page
-
-Using built in dom-parser and regex
-
+* `"@arrow-js/core": "^1.0.0-alpha.10"`
+  To populate popup.html with content. Bundled together with lib.popup.js to become popup.js
+* `"@rollup/plugin-node-resolve": "^16.0.0"`
+   Rollup-plugin for popup.js
+* `"bestzip": "^2.2.1"`
+  Packing extension for Chrome
+* `"playwright": "^1.49.1"`
+  Automated testing of browser extension.
+* `rollup": "^4.32.1"`
+  Bundling tool for content.js, background.js and popup.js
+* `"standard": "^17.1.2"`
+  Used for ensuring good coding practice
+* `"web-ext": "^8.3.0"`
+  Testing and packing extension for Firefox
