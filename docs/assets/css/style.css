@@ -99,6 +99,13 @@ p {
   font-family: 'Courier New', Courier, monospace;
 }
 
+code .highlighter-rouge {
+  background:#0550ae;
+  white-space: preserve nowrap;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 2px;
+}
+
 @media screen and (max-width: 800px) {
   h1 > a {
     font-size: 2.8rem;
