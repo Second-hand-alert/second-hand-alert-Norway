@@ -36,6 +36,12 @@ body {
   font-size: 1.3rem;
   line-height: 1.7rem;
 }
+h1 {
+  font-size:2.8rem;
+  font-weight: 500;
+  line-height: 3.5rem;
+  margin: 1.6rem 0 2rem 0;
+}
 h1 > a {
   padding: 18px 0 20px 120px;
   display: block;
@@ -47,15 +53,8 @@ h1 > a {
   font-weight: 500;
   text-decoration: none;
   line-height: 5rem;
-  margin: 1.25rem 0 2rem 0;
+  margin: 0 0 0 0;
 }
-h1 {
-  font-size:2.8rem;
-  font-weight: 500;
-  line-height: 3.5rem;
-  margin: 1.6rem 0 2rem 0;
-}
-
 h2 {
   font-size: 1.9rem;
   font-weight: 500;

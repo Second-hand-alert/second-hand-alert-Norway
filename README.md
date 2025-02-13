@@ -10,7 +10,7 @@ npm run package
 
 ## Structure
 
-The build process is mostly rollup, but the different versions of manifest.json is a custom JavaScript thing. `./lib`-folder contains all functions and variables to build the browser extension for different browsers and countries. Files in `./lib/<country>/<browser>/` imports the correct functions and variables needed for rollup to build to `./dist-unpackaged/<country>/<browser>/`. zip-chrome and web-ext is used to package the browser extensions into the `./dist`-folder.
+The build process is mostly rollup, but the different versions of manifest.json is a custom JavaScript thing. Directly in the `./lib`-folder you all functions and variables to build the browser extension for different browsers and countries. Files in `./lib/<country>/<browser>/` imports the correct functions and variables needed for rollup to build to `./dist-unpackaged/<country>/<browser>/`. zip-chrome and web-ext is used to package the browser extensions into the `./dist`-folder.
 
 ## Tools used (dev-dependencies)
 
