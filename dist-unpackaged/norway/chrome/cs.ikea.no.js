@@ -14,7 +14,7 @@
     urlPart1: 'https://www.finn.no/bap/forsale/search.html?category=0.78&q=',
     urlPart2: '&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
     site: 'IKEA',
-    searchSite: 'FINN',
+    searchSite: 'FINN.no',
     searchResults: null,
     timeStamp: null
   };
@@ -59,10 +59,10 @@
     const sending = browser.runtime.sendMessage(obj);
     sending
       .then(response => {
-        console.log('Response to cs.ikea from background: ' + JSON.stringify(response, null, ' '));
+        console.log('Response to ' + obj.site + ' content-script from background: ' + JSON.stringify(response, null, ' '));
       })
       .catch(error => {
-        console.error('Error sending from cs.ikea to background: ', error);
+        console.error('Error sending from ' + obj.site + ' content-script to background: ', error);
       });
   }
 

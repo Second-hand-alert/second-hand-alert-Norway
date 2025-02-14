@@ -14,7 +14,7 @@
   // ###    H: Listener to message from content scripts                        ###
   // ###    I: Hello background! Just checking                                 ###
 
-  // ###    Example of object that is sent from content-script:                ###
+  // ###    Example of object that is sent from IKEA content-script:           ###
   // let prodObj = {
   //   type: 'CONTENT_BACKGROUND',
   //   title: '',
@@ -37,7 +37,7 @@
     const options = {
       type: 'basic',
       title: prodObj.title,
-      message: 'Treff på ' + prodObj.searchSite + ': ' + prodObj.searchResults,
+      message: 'Tilgjengelig på ' + prodObj.searchSite + ': ' + prodObj.searchResults,
       iconUrl: './img/icon128.png'
     };
     browser$1.notifications.create(options);
@@ -61,7 +61,7 @@
 
   // ###    D: Search Finn, send response to popup script and notify if        ###
   // ###       results                                                         ###
-  function productSearch (prodObj) {
+  function productSearchFINN (prodObj) {
     fetch(prodObj.URL)
       .then(response => {
         return response.text()
@@ -80,11 +80,38 @@
       });
   }
 
+  // ###    D: Search BookisNo, send response to popup script and notify if        ###
+  // ###       available                                                           ###
+  function productSearchBookisNo (prodObj) {
+    fetch(prodObj.URLCheckAvailability)
+      .then(response => {
+        return response.json()
+      })
+      .then(JSON => {
+        const available = JSON.data[0].availability.available;
+        if (available) {
+          prodObj.searchResults = '✅';
+          notifyBrowser(prodObj);
+          setStorageData(prodObj);
+        }
+      })
+      .catch(error => {
+        console.error('Failed to fetch ' + prodObj.searchSite + ' page: ', error);
+      });
+  }
+
   // ###    E: Listener to message from content scripts and popup              ###
   function handleMessages (obj, sender, sendResponse) {
     if (obj.type === 'CONTENT_BACKGROUND') {
-      productSearch(obj);
-      sendResponse({ response: 'Response from background script to content script' });
+      console.log(obj.searchSite);
+      if (obj.searchSite === 'FINN.no') {
+        productSearchFINN(obj);
+        sendResponse({ response: 'Response from background script to content script' });
+      }
+      if (obj.searchSite === 'Bookis.no') {
+        productSearchBookisNo(obj);
+        sendResponse({ response: 'Response from background script to content script' });
+      }
       return
     } if (obj.type === 'POPUP_OPEN') {
       getStorageDataAndSend();

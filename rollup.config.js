@@ -1,5 +1,4 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import outputManifest from 'rollup-plugin-output-manifest';
 
 export default [
   {
@@ -25,6 +24,20 @@ export default [
     }
   },
   {
+    // Norway - Chrome - content - Ark
+    input: './lib/norway/chrome/cs.ark.no.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/norway/chrome/cs.ark.no.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
+    // Norway - Chrome - content - Norli
+    input: './lib/norway/chrome/cs.norli.no.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/norway/chrome/cs.norli.no.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     // Norway - Firefox - popup
     input: './lib/norway/firefox/popup.js',
     output: {
@@ -44,6 +57,20 @@ export default [
     input: './lib/norway/firefox/cs.ikea.js',
     output: [
       { name: 'sha', file: './dist-unpackaged/norway/firefox/cs.ikea.no.js', format: 'umd', exports: 'named' }
+    ]
+  },
+  {
+    // Norway - Firefox - content - Ark
+    input: './lib/norway/firefox/cs.ark.no.js',
+    output: [
+      { name: 'sha', file: './dist-unpackaged/norway/firefox/cs.ark.no.js', format: 'umd', exports: 'named' }
+    ]
+  },
+  {
+    // Norway - Firefox - content - Norli
+    input: './lib/norway/firefox/cs.norli.no.js',
+    output: [
+      { name: 'sha', file: './dist-unpackaged/norway/firefox/cs.norli.no.js', format: 'umd', exports: 'named' }
     ]
   }
 ]
