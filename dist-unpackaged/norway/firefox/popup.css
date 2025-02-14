@@ -68,6 +68,18 @@ header {
   top: 0px;
   filter: drop-shadow(#3d3d3d 0px -5px 8px);
 }
+img#logo {
+  width:32px;
+  height:32px;
+}
+a#about img {
+  width:32px;
+  height:32px;
+}
+a#about{
+  float:right
+}
+
 div#list {
   padding:1.5em;
 }

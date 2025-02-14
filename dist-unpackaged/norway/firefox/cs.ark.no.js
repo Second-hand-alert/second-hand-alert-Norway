@@ -40,8 +40,10 @@
       });
   }
 
-  const prodObj = extractAndPrepareArk(prodObjArk);
-  sendObj(prodObj);
+  setTimeout(() => {
+    const prodObj = extractAndPrepareArk(prodObjArk);
+    sendObj(prodObj);
+  }, 1000);
 
   console.log('Content at Ark!');
 
