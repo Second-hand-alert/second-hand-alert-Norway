@@ -12,10 +12,6 @@ npm run package
 
 The build process is mostly rollup, but the different versions of manifest.json is a custom JavaScript thing. `./lib`-folder contains all functions and variables to build the browser extension for different browsers and countries. Files in `./lib/<country>/<browser>/` imports the correct functions and variables needed for rollup to build to `./dist-unpackaged/<country>/<browser>/`. zip-chrome and web-ext is used to package the browser extensions into the `./dist`-folder.
 
-## When
-
-Comming soon to a browser extension store near you!
-
 ### About-page
 
 The about/help-page is separate from the plugin to easier update install instructions and can be found on [secondhandalert.xyz](https://secondhandalert.xyz). This page is availabl on [build-documentation](https://secondhandalert.xyz/build-documentation.html)

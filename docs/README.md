@@ -2,6 +2,10 @@
 
 The browser extension gives you an alert when second hand/used alternatives to new products are available. Browse a connected store and get get a link to a second-hand alternative when available.
 
+## When
+
+Comming soon to a browser extension store near you!
+
 ## Countries
 
 Each browser extension is for a set of stores and second-hand stores in one specific country.
