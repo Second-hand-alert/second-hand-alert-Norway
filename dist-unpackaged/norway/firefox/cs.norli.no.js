@@ -5,18 +5,20 @@
 
   const browser = chrome;
 
-  const prodObjNorli = {
-    type: 'CONTENT_BACKGROUND',
-    title: '',
-    ISBN: '',
-    URL: 'https://bookis.com/no/search?books_norway[query]=',
-    URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
-    site: 'Norli',
-    searchSite: 'Bookis.no',
-    searchResults: null,
-    available: null,
-    timeStamp: null
-  };
+  function prodObjNorli () {
+    return {
+      type: 'CONTENT_BACKGROUND',
+      title: '',
+      ISBN: '',
+      URL: 'https://bookis.com/no/search?books_norway[query]=',
+      URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
+      site: 'Norli',
+      searchSite: 'Bookis.no',
+      searchResults: null,
+      available: null,
+      timeStamp: null
+    }
+  }
 
   function extractAndPrepareNorli (prodObj) {
     const regexISBN = /\d{13}/;

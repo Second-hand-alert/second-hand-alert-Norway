@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Second-hand alert",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
     "16": "./img/icon16.png",
@@ -30,7 +30,7 @@
     },
     {
       "matches": [
-        "*://*.ark.no/produkt/boker*"
+        "*://*.ark.no/*"
       ],
       "js": [
         "cs.ark.no.js"
@@ -38,7 +38,7 @@
     },
     {
       "matches": [
-        "*://*.norli.no/boker*"
+        "*://*.norli.no/*"
       ],
       "js": [
         "cs.norli.no.js"

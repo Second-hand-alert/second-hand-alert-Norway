@@ -1,6 +1,6 @@
 {
   "name": "used-alternative-alert",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "Browser extension to give you second hand/used alternatives to new products when shopping.",
   "main": "./lib/lib.background.js",
   "type": "module",

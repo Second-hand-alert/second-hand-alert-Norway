@@ -4,19 +4,34 @@
 })((function () { 'use strict';
 
   const browser = chrome;
+  const regexNorliProductPage = /^(https:\/\/www\.norli\.no\/boker\/)/;
 
-  const prodObjNorli = {
-    type: 'CONTENT_BACKGROUND',
-    title: '',
-    ISBN: '',
-    URL: 'https://bookis.com/no/search?books_norway[query]=',
-    URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
-    site: 'Norli',
-    searchSite: 'Bookis.no',
-    searchResults: null,
-    available: null,
-    timeStamp: null
-  };
+  // For SPA-sites, content script triggers on every page. This function to check if it's a product page
+  function productUrlCheck (regexUrlCheck, url) {
+    // check if url matches regex test and return true/false
+    if (regexUrlCheck.test(url)) {
+      console.log('### Book product page TRUE --> ' + url);
+      return true
+    } else {
+      console.log('### Book product page FALSE --> ' + url);
+      return false
+    }
+  }
+
+  function prodObjNorli () {
+    return {
+      type: 'CONTENT_BACKGROUND',
+      title: '',
+      ISBN: '',
+      URL: 'https://bookis.com/no/search?books_norway[query]=',
+      URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
+      site: 'Norli',
+      searchSite: 'Bookis.no',
+      searchResults: null,
+      available: null,
+      timeStamp: null
+    }
+  }
 
   function extractAndPrepareNorli (prodObj) {
     const regexISBN = /\d{13}/;
@@ -43,10 +58,17 @@
       });
   }
 
-  setTimeout(() => {
-    const prodObj = extractAndPrepareNorli(prodObjNorli);
-    sendObj(prodObj);
-  }, 1000);
+  window.navigation.addEventListener('navigate', (event) => {
+    if (productUrlCheck(regexNorliProductPage, event.destination.url)) {
+      console.log('###### location changed: ' + event.destination.url);
+      setTimeout(() => {
+        let prodObj = prodObjNorli();
+        console.log('#### Norli prodObj now: ' + JSON.stringify(prodObj, null, 2));
+        prodObj = extractAndPrepareNorli(prodObj);
+        sendObj(prodObj);
+      }, 1200);
+    }
+  });
 
   console.log('Content at Norli!');
 
