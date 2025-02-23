@@ -69,6 +69,14 @@
     }
   });
 
+  // Needed for first page loaded
+  setTimeout(() => {
+    let prodObj = prodObjArk();
+    console.log('#### Norli prodObj now: ' + JSON.stringify(prodObj, null, 2));
+    prodObj = extractAndPrepareArk(prodObj);
+    sendObj(prodObj);
+  }, 1200);
+
   console.log('#######################################  Content at Ark!');
 
 }));
