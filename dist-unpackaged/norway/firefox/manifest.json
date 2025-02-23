@@ -19,6 +19,11 @@
     "default_popup": "./popup.html",
     "default_icon": "./img/icon48.png"
   },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
   "content_scripts": [
     {
       "matches": [
@@ -44,10 +49,5 @@
         "cs.norli.no.js"
       ]
     }
-  ],
-  "background": {
-    "scripts": [
-      "background.js"
-    ]
-  }
+  ]
 }

@@ -25,7 +25,7 @@
   // }
 
   // ###    A: Make script work for Firefox and Chrome-based browsers          ###
-  const browser$1 = chrome;
+  const browser = chrome;
 
   // ###    B: Define regexes for finding amount of product hits               ###
   const regexes = {
@@ -40,7 +40,7 @@
       message: 'Tilgjengelig på ' + prodObj.searchSite + ': ' + prodObj.searchResults,
       iconUrl: './img/icon128.png'
     };
-    browser$1.notifications.create(options);
+    browser.notifications.create(options);
   }
 
   function removeDuplicates (list) {
@@ -128,16 +128,16 @@
 
   // ###    F: Set data to browser.storage.local                               ###
   function setStorageData (prodObj) {
-    browser$1.storage.local.get({ searchArr: null })
+    browser.storage.local.get({ searchArr: null })
       .then((keyValueStore) => {
         if (keyValueStore.searchArr === null) {
-          browser$1.storage.local.set({ searchArr: [prodObj] });
+          browser.storage.local.set({ searchArr: [prodObj] });
         } else {
           keyValueStore.searchArr.push(prodObj);
           let searchArr = keyValueStore.searchArr;
           searchArr = removeDuplicates(searchArr);
           searchArr = cutoffList(searchArr);
-          browser$1.storage.local.set({ searchArr });
+          browser.storage.local.set({ searchArr });
         }
       })
       .catch((error) => {
@@ -147,9 +147,9 @@
 
   // ###    G: Get data from browser.storage.local and send to popup           ###
   function getStorageDataAndSend () {
-    browser$1.storage.local.get({ searchArr: null })
+    browser.storage.local.get({ searchArr: null })
       .then((result) => {
-        browser$1.runtime.sendMessage({ type: 'BACKGROUND_POPUP', searchArr: result.searchArr });
+        browser.runtime.sendMessage({ type: 'BACKGROUND_POPUP', searchArr: result.searchArr });
       })
       .catch((error) => {
         console.error('Error in getStoredData: ' + error);
@@ -157,12 +157,8 @@
   }
 
   // ###    H: Listener to message from content scripts                        ###
-  browser$1.runtime.onMessage.addListener(handleMessages);
+  browser.runtime.onMessage.addListener(handleMessages);
 
-  // ###    I: Hello background! Just checking                                 ###
-  console.log('Hello background.js');
-
-  const browser = chrome;
   browser.runtime.onMessage.addListener(handleMessages);
 
   // ###    G: Hello background! Just checking                                 ###

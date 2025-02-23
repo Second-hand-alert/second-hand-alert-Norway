@@ -159,9 +159,6 @@
   // ###    H: Listener to message from content scripts                        ###
   browser$1.runtime.onMessage.addListener(handleMessages);
 
-  // ###    I: Hello background! Just checking                                 ###
-  console.log('Hello background.js');
-
   browser.runtime.onMessage.addListener(handleMessages);
 
   // ###    G: Hello background! Just checking                                 ###

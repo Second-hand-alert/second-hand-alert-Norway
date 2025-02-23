@@ -4,6 +4,19 @@
 })((function () { 'use strict';
 
   const browser = chrome;
+  const regexNorliProductPage = /^(https:\/\/www\.norli\.no\/boker\/)/;
+
+  // For SPA-sites, content script triggers on every page. This function to check if it's a product page
+  function productUrlCheck (regexUrlCheck, url) {
+    // check if url matches regex test and return true/false
+    if (regexUrlCheck.test(url)) {
+      console.log('### Book product page TRUE --> ' + url);
+      return true
+    } else {
+      console.log('### Book product page FALSE --> ' + url);
+      return false
+    }
+  }
 
   function prodObjNorli () {
     return {
@@ -45,10 +58,29 @@
       });
   }
 
+  let firstTime = true;
+
+  window.addEventListener('popstate', (event) => {
+    console.log('#################################### Hello event listener!');
+    if (!firstTime && productUrlCheck(regexNorliProductPage, event.destination.url)) {
+      console.log('###### location changed: ' + event.destination.url);
+      setTimeout(() => {
+        let prodObj = prodObjNorli();
+        console.log('#### Norli prodObj now: ' + JSON.stringify(prodObj, null, 2));
+        prodObj = extractAndPrepareNorli(prodObj);
+        sendObj(prodObj);
+      }, 1200);
+    }
+  });
+
+  // Needed for first page loaded
   setTimeout(() => {
-    const prodObj = extractAndPrepareNorli(prodObjNorli);
+    firstTime = false;
+    let prodObj = prodObjNorli();
+    console.log('#### Norli prodObj now: ' + JSON.stringify(prodObj, null, 2));
+    prodObj = extractAndPrepareNorli(prodObj);
     sendObj(prodObj);
-  }, 1000);
+  }, 1200);
 
   console.log('Content at Norli!');
 

@@ -5,6 +5,20 @@
 
   const browser = chrome;
 
+  const regexArkProductPage = /^(https:\/\/www\.ark\.no\/produkt\/boker\/)/;
+
+  // For SPA-sites, content script triggers on every page. This function to check if it's a product page
+  function productUrlCheck (regexUrlCheck, url) {
+    // check if url matches regex test and return true/false
+    if (regexUrlCheck.test(url)) {
+      console.log('### Book product page TRUE --> ' + url);
+      return true
+    } else {
+      console.log('### Book product page FALSE --> ' + url);
+      return false
+    }
+  }
+
   function prodObjArk () {
     return {
       type: 'CONTENT_BACKGROUND',
@@ -43,11 +57,18 @@
       });
   }
 
-  setTimeout(() => {
-    const prodObj = extractAndPrepareArk(prodObjArk);
-    sendObj(prodObj);
-  }, 1000);
+  window.addEventListener('popstate', (event) => {
+    if (productUrlCheck(regexArkProductPage, event.destination.url)) {
+      console.log('###### location changed: ' + event.destination.url);
+      setTimeout(() => {
+        let prodObj = prodObjArk();
+        console.log('#### Ark prodObj now: ' + JSON.stringify(prodObj, null, 2));
+        prodObj = extractAndPrepareArk(prodObj);
+        sendObj(prodObj);
+      }, 1200);
+    }
+  });
 
-  console.log('Content at Ark!');
+  console.log('#######################################  Content at Ark!');
 
 }));

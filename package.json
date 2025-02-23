@@ -11,7 +11,7 @@
     ]
   },
   "scripts": {
-    "manifest": "node ./lib/norway/chrome/manifest.js --experimental-json-modules && node lib/norway/firefox/manifest.js --experimental-json-modules",
+    "manifest": "node ./lib/manifest.js --experimental-json-modules",
     "build": "npm run manifest && rollup --config && cp ./lib/popup.* ./dist-unpackaged/norway/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/norway/chrome/img/ && cp ./lib/popup.* ./dist-unpackaged/norway/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/norway/firefox/img/",
     "zip-chrome": "cd ./dist-unpackaged/norway/chrome/ && bestzip ../../../dist/norway/norway-chrome-build.zip *",
     "test": "npm run build && standard './lib/*.js'"
@@ -35,8 +35,8 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "bestzip": "^2.2.1",
     "playwright": "^1.49.1",
-    "rollup-plugin-output-manifest": "^2.0.0",
     "rollup": "^4.32.1",
+    "rollup-plugin-output-manifest": "^2.0.0",
     "standard": "^17.1.2",
     "web-ext": "^8.3.0"
   }

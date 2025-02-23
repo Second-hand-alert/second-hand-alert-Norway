@@ -19,6 +19,10 @@
     "default_popup": "./popup.html",
     "default_icon": "./img/icon48.png"
   },
+  "background": {
+    "service_worker": "./background.js",
+    "type": "module"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -44,9 +48,5 @@
         "cs.norli.no.js"
       ]
     }
-  ],
-  "background": {
-    "service_worker": "./background.js",
-    "type": "module"
-  }
+  ]
 }
