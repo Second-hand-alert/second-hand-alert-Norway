@@ -4,6 +4,7 @@
 
 ```console
 npm install
+npm run manifest
 npm run build
 npm run package
 ```
@@ -20,11 +21,11 @@ The build process is mostly rollup, but the different versions of manifest.json 
    Rollup-plugin for popup.js
 * `"bestzip": "^2.2.1"`
   Packing extension for Chrome
-* `"playwright": "^1.49.1"`
-  Automated testing of browser extension.
 * `rollup": "^4.32.1"`
-  Bundling tool for content.js, background.js and popup.js
+  Bundling tool for content scripts, background.js and popup.js
 * `"standard": "^17.1.2"`
-  Used for ensuring good coding practice
+  Used for ensuring good coding practice. Not all files are possible to keep in line with StandardJS standard.
 * `"web-ext": "^8.3.0"`
   Testing and packing extension for Firefox
+* `manifest.js`
+  Custom build-script for manifest.json
