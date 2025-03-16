@@ -24,7 +24,7 @@
       type: 'CONTENT_BACKGROUND',
       title: '',
       ISBN: '',
-      URL: 'https://bookis.com/no/search?books_norway[query]=',
+      URL: 'https://bookis.com/no/search?books_norway&query=',
       URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
       site: 'ARK',
       searchSite: 'Bookis.no',
@@ -35,6 +35,7 @@
   }
 
   function extractAndPrepareArk (prodObj) {
+    console.log('################## prodobj in extractAndPrepareArk: ' + JSON.stringify(prodObj, null, 2));
     prodObj.title = document.querySelector('meta[property="og:title"]').getAttribute('content');
     prodObj.ISBN = document.querySelector('meta[name="evg:sku"]').getAttribute('content');
     console.log('### ARK - ISBN: ' + prodObj.ISBN);
