@@ -2,75 +2,75 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 export default [
   {
-    // Norway - Chrome - popup
-    input: './lib/norway/chrome/popup.js',
+    // Chrome - popup
+    input: './lib/chrome/popup.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/norway/chrome/popup.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/popup.js', format: 'umd', exports: 'named'
     },
     plugins: [nodeResolve()]
   },
   {
-    // Norway - Chrome - background
-    input: './lib/norway/chrome/background.js',
+    // Chrome - background
+    input: './lib/chrome/background.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/norway/chrome/background.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/background.js', format: 'umd', exports: 'named'
     }
   },
   {
-    // Norway - Chrome - content - Ikea
-    input: './lib/norway/chrome/cs.ikea.js',
+    // Chrome - content - Ikea
+    input: './lib/chrome/cs.ikea.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/norway/chrome/cs.ikea.no.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/cs.ikea.no.js', format: 'umd', exports: 'named'
     }
   },
   {
-    // Norway - Chrome - content - Ark
-    input: './lib/norway/chrome/cs.ark.no.js',
+    // Chrome - content - Ark
+    input: './lib/chrome/cs.ark.no.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/norway/chrome/cs.ark.no.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/cs.ark.no.js', format: 'umd', exports: 'named'
     }
   },
   {
-    // Norway - Chrome - content - Norli
-    input: './lib/norway/chrome/cs.norli.no.js',
+    // Chrome - content - Norli
+    input: './lib/chrome/cs.norli.no.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/norway/chrome/cs.norli.no.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/cs.norli.no.js', format: 'umd', exports: 'named'
     }
   },
   {
-    // Norway - Firefox - popup
-    input: './lib/norway/firefox/popup.js',
+    // Firefox - popup
+    input: './lib/firefox/popup.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/norway/firefox/popup.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/firefox/popup.js', format: 'umd', exports: 'named'
     },
     plugins: [nodeResolve()]
   },
   {
-    // Norway - Firefox - background
-    input: './lib/norway/firefox/background.js',
+    // Firefox - background
+    input: './lib/firefox/background.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/norway/firefox/background.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/firefox/background.js', format: 'umd', exports: 'named'
     }
   },
   {
-    // Norway - Firefox - content - Ikea
-    input: './lib/norway/firefox/cs.ikea.js',
+    // Firefox - content - Ikea
+    input: './lib/firefox/cs.ikea.js',
     output: [
-      { name: 'sha', file: './dist-unpackaged/norway/firefox/cs.ikea.no.js', format: 'umd', exports: 'named' }
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.ikea.no.js', format: 'umd', exports: 'named' }
     ]
   },
   {
-    // Norway - Firefox - content - Ark
-    input: './lib/norway/firefox/cs.ark.no.js',
+    // Firefox - content - Ark
+    input: './lib/firefox/cs.ark.no.js',
     output: [
-      { name: 'sha', file: './dist-unpackaged/norway/firefox/cs.ark.no.js', format: 'umd', exports: 'named' }
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.ark.no.js', format: 'umd', exports: 'named' }
     ]
   },
   {
-    // Norway - Firefox - content - Norli
-    input: './lib/norway/firefox/cs.norli.no.js',
+    // Firefox - content - Norli
+    input: './lib/firefox/cs.norli.no.js',
     output: [
-      { name: 'sha', file: './dist-unpackaged/norway/firefox/cs.norli.no.js', format: 'umd', exports: 'named' }
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.norli.no.js', format: 'umd', exports: 'named' }
     ]
   }
 ]
