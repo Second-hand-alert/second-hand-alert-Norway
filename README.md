@@ -5,7 +5,9 @@
 
 Second-hand alert - Norway is a browser extension that gives you an alert when second hand/used alternatives to new products are available. Browse a connected store and get get a link to a second-hand alternative when available.
 
-Public documentation and homepage: [secondhandalert.xyz](https://secondhandalert.xyz)
+## About-page - secondhandalert.xyz
+
+The about/help-page is separate from the plugin to easier update install instructions and can be found on [secondhandalert.xyz](https://secondhandalert.xyz). The `?` in the top right corner of the browser extension points to this site.
 
 ## Build documentation - Note for reviewers (and developers)
 
