@@ -22,7 +22,7 @@
   function extractAndPrepareIkea (prodObj) {
     const regexStandard = /^.+?(?=, )/gmu;
     const testMeasurement = /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)|(\d+\scm)/gmu;
-    const regexMeasurement = /[\d+]+/gu;
+    const regexMeasurement = /[\d]+(?=x)|[\d]+(?=\scm)/gu;
 
     prodObj.title = document.getElementsByTagName('title')[0].innerHTML;
     prodObj.queryPartReadable = regexStandard.exec(prodObj.title);
