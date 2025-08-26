@@ -1,6 +1,6 @@
 {
   "name": "used-alternative-alert",
-  "version": "0.5.10",
+  "version": "0.5.11",
   "description": "Browser extension to give you second hand/used alternatives to new products when shopping.",
   "main": "./lib/lib.background.js",
   "type": "module",
@@ -11,8 +11,8 @@
     ]
   },
   "scripts": {
-    "manifest": "node ./lib/manifest.js --experimental-json-modules",
-    "build": "npm run manifest && rollup --config && cp ./lib/popup.* ./dist-unpackaged/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/chrome/img/ && cp ./lib/popup.* ./dist-unpackaged/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/firefox/img/",
+    "build-manifest": "node ./lib/manifest.js --experimental-json-modules",
+    "build": "npm run build-manifest && rollup --config && cp ./lib/popup.* ./dist-unpackaged/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/chrome/img/ && cp ./lib/popup.* ./dist-unpackaged/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/firefox/img/",
     "zip-chrome": "cd ./dist-unpackaged/chrome/ && bestzip ../../dist/norway-chrome-build.zip *",
     "package": "npm run zip-chrome",
     "test": "npm run build && standard './lib/*.js'"
@@ -33,12 +33,12 @@
   "homepage": "https://github.com/eklem/used-alternative#readme",
   "devDependencies": {
     "@arrow-js/core": "^1.0.0-alpha.10",
-    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
     "bestzip": "^2.2.1",
-    "playwright": "^1.49.1",
-    "rollup": "^4.32.1",
+    "playwright": "^1.55.0",
+    "rollup": "^4.48.1",
     "rollup-plugin-output-manifest": "^2.0.0",
     "standard": "^17.1.2",
-    "web-ext": "^8.4.0"
+    "web-ext": "^8.9.0"
   }
 }

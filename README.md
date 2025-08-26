@@ -17,7 +17,6 @@ Build and structure documentation for reviewers and developers.
 
 ```console
 npm install
-npm run manifest
 npm run build
 npm run package
 ```
@@ -30,7 +29,7 @@ The build process is mostly Rollup with `./rollup.config.js`, but the different 
 All external libraries listed in package.json, but also here:
 
 * `"@arrow-js/core": "^1.0.0-alpha.10"`
-  To populate popup.html with content. Pulls info from background.js. Bundled together with lib.popup.js to become popup.js
+  To populate popup.html with content. Pulls info from background.js. Bundled together with lib.popup.js to become popup.js. Not used in content scripts.
 * `"@rollup/plugin-node-resolve": "^16.0.0"`
    Rollup-plugin for popup.js
 * `"bestzip": "^2.2.1"`

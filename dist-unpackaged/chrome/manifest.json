@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Second-hand alert",
-  "version": "0.5.10",
+  "version": "0.5.11",
   "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
     "16": "./img/icon16.png",
@@ -46,6 +46,14 @@
       ],
       "js": [
         "cs.norli.no.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.adlibris.no/nb/bok/*"
+      ],
+      "js": [
+        "cs.adlibris.no.js"
       ]
     }
   ]

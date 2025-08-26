@@ -260,7 +260,7 @@
                 node.addEventListener(event, expression);
                 if (!listeners.has(node))
                     listeners.set(node, new Map());
-                (_a = listeners.get(node)) === null || _a === undefined ? undefined : _a.set(event, expression);
+                (_a = listeners.get(node)) === null || _a === void 0 ? void 0 : _a.set(event, expression);
                 toRemove.push(attrName);
             }
             else {
@@ -307,7 +307,7 @@
         var _a;
         node.remove();
         (_a = listeners
-            .get(node)) === null || _a === undefined ? undefined : _a.forEach((listener, event) => node.removeEventListener(event, listener));
+            .get(node)) === null || _a === void 0 ? void 0 : _a.forEach((listener, event) => node.removeEventListener(event, listener));
     }
     /**
      * Given a textNode, parse the node for expressions and return a fragment.
@@ -331,7 +331,7 @@
             let partialMemo;
             boundNode = (partialMemo = w(expression, (value) => setNode(value, partialMemo)))();
         }
-        (_a = node.parentNode) === null || _a === undefined ? undefined : _a.replaceChild(boundNode, node);
+        (_a = node.parentNode) === null || _a === void 0 ? void 0 : _a.replaceChild(boundNode, node);
     }
     /**
      * Set the value of a given node.
@@ -357,7 +357,7 @@
      */
     function createNodes(html) {
         var _a;
-        const tpl = (_a = templateMemo[html]) !== null && _a !== undefined ? _a : (() => {
+        const tpl = (_a = templateMemo[html]) !== null && _a !== void 0 ? _a : (() => {
             const tpl = document.createElement('template');
             tpl.innerHTML = html;
             return (templateMemo[html] = tpl);
@@ -502,7 +502,7 @@
                 }
             });
             closeSubPartial();
-            let node = lastNode === null || lastNode === undefined ? undefined : lastNode.nextSibling;
+            let node = lastNode === null || lastNode === void 0 ? void 0 : lastNode.nextSibling;
             while (node && group in node) {
                 toRemove.push(node);
                 const next = node.nextSibling;
