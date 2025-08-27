@@ -102,7 +102,7 @@
   document.body.addEventListener('keyup', (event) => {
     setTimeout(() => {
       console.log('###### event keyup registered: ' + window.location.href);
-      if (event.code === 'enter' && productUrlCheck(regexNorliProductPage, window.location.href) && firstTime === false && newURL(window.location.href) === true) {
+      if (event.key === 'enter' && productUrlCheck(regexNorliProductPage, window.location.href) && firstTime === false && newURL(window.location.href) === true) {
         console.log('###### location changed: ' + window.location.href);
         let prodObj = prodObjNorli();
         console.log('#### Norli prodObj now: ' + JSON.stringify(prodObj, null, 2));

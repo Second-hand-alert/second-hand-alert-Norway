@@ -20,21 +20,28 @@ export default [
     // Chrome - content - Ikea
     input: './lib/chrome/cs.ikea.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/chrome/cs.ikea.no.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/cs.ikea.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
+    // Chrome - content - AdLibris
+    input: './lib/chrome/cs.adlibris.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.adlibris.js', format: 'umd', exports: 'named'
     }
   },
   {
     // Chrome - content - Ark
-    input: './lib/chrome/cs.ark.no.js',
+    input: './lib/chrome/cs.ark.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/chrome/cs.ark.no.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/cs.ark.js', format: 'umd', exports: 'named'
     }
   },
   {
     // Chrome - content - Norli
-    input: './lib/chrome/cs.norli.no.js',
+    input: './lib/chrome/cs.norli.js',
     output: {
-      name: 'sha', file: './dist-unpackaged/chrome/cs.norli.no.js', format: 'umd', exports: 'named'
+      name: 'sha', file: './dist-unpackaged/chrome/cs.norli.js', format: 'umd', exports: 'named'
     }
   },
   {
@@ -56,21 +63,28 @@ export default [
     // Firefox - content - Ikea
     input: './lib/firefox/cs.ikea.js',
     output: [
-      { name: 'sha', file: './dist-unpackaged/firefox/cs.ikea.no.js', format: 'umd', exports: 'named' }
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.ikea.js', format: 'umd', exports: 'named' }
+    ]
+  },
+  {
+    // Firefox - content - AdLibris
+    input: './lib/firefox/cs.adlibris.js',
+    output: [
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.adlibris.js', format: 'umd', exports: 'named' }
     ]
   },
   {
     // Firefox - content - Ark
-    input: './lib/firefox/cs.ark.no.js',
+    input: './lib/firefox/cs.ark.js',
     output: [
-      { name: 'sha', file: './dist-unpackaged/firefox/cs.ark.no.js', format: 'umd', exports: 'named' }
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.ark.js', format: 'umd', exports: 'named' }
     ]
   },
   {
     // Firefox - content - Norli
-    input: './lib/firefox/cs.norli.no.js',
+    input: './lib/firefox/cs.norli.js',
     output: [
-      { name: 'sha', file: './dist-unpackaged/firefox/cs.norli.no.js', format: 'umd', exports: 'named' }
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.norli.js', format: 'umd', exports: 'named' }
     ]
   }
 ]

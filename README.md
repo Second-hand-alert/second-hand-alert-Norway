@@ -9,6 +9,10 @@ Second-hand alert - Norway is a browser extension that gives you an alert when s
 
 The about/help-page is separate from the plugin to easier update install instructions and can be found on [secondhandalert.xyz](https://secondhandalert.xyz). The `?` in the top right corner of the browser extension points to this site.
 
+## Development
+
+How to develop and debug a new extention for a country or additional stores in an existing one is found in [DEVELOPMENT.md](./blob/trunk/DEVELOPMENT.md)
+
 ## Note for reviewers
 
 Build and structure documentation for reviewers and developers.
