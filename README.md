@@ -11,7 +11,7 @@ The about/help-page is separate from the plugin to easier update install instruc
 
 ## Development
 
-How to develop and debug a new extention for a country or additional stores in an existing one is found in [DEVELOPMENT.md](https://github.com/Second-hand-alert/second-hand-alert-Norway/blob/trunk/DEVELOPMENT.md)
+How to develop and debug a new extention for a country or additional stores in an existing one is found in  the [development-documentation](https://github.com/Second-hand-alert/development-documentation) repository.
 
 ## Note for reviewers
 
