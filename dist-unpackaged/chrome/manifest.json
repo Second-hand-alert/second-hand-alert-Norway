@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Second-hand alert",
-  "version": "0.5.13",
+  "version": "0.5.14",
   "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
     "16": "./img/icon16.png",
@@ -34,14 +34,6 @@
     },
     {
       "matches": [
-        "*://*.ark.no/*"
-      ],
-      "js": [
-        "cs.ark.js"
-      ]
-    },
-    {
-      "matches": [
         "*://*.norli.no/*"
       ],
       "js": [
@@ -54,6 +46,30 @@
       ],
       "js": [
         "cs.adlibris.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.akademika.no/*"
+      ],
+      "js": [
+        "cs.akademika.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.ark.no/*"
+      ],
+      "js": [
+        "cs.ark.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.norli.no/*"
+      ],
+      "js": [
+        "cs.norli.js"
       ]
     }
   ]

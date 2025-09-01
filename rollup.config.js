@@ -31,6 +31,13 @@ export default [
     }
   },
   {
+    // Chrome - content - Akademika
+    input: './lib/chrome/cs.akademika.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.akademika.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     // Chrome - content - Ark
     input: './lib/chrome/cs.ark.js',
     output: {
@@ -72,6 +79,13 @@ export default [
     output: [
       { name: 'sha', file: './dist-unpackaged/firefox/cs.adlibris.js', format: 'umd', exports: 'named' }
     ]
+  },
+  {
+    // Firefox - content - Akademika
+    input: './lib/firefox/cs.akademika.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/firefox/cs.akademika.js', format: 'umd', exports: 'named'
+    }
   },
   {
     // Firefox - content - Ark
