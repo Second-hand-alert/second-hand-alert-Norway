@@ -45,6 +45,13 @@ export default [
     }
   },
   {
+    // Chrome - content - Bokkilden
+    input: './lib/chrome/cs.bokkilden.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.bokkilden.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     // Chrome - content - Norli
     input: './lib/chrome/cs.norli.js',
     output: {
@@ -93,6 +100,13 @@ export default [
     output: [
       { name: 'sha', file: './dist-unpackaged/firefox/cs.ark.js', format: 'umd', exports: 'named' }
     ]
+  },
+  {
+    // Firefox - content - Bokkilden
+    input: './lib/firefox/cs.bokkilden.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/firefox/cs.bokkilden.js', format: 'umd', exports: 'named'
+    }
   },
   {
     // Firefox - content - Norli
