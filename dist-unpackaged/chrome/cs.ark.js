@@ -6,7 +6,8 @@
   const browser = chrome;
   const regexArkProductPage = /^(https:\/\/www\.ark\.no\/produkt\/boker\/)/;
 
-  // For SPA-sites, content script triggers on every page. This function to check if it's a product page
+  // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
+  // Can also be used where the start of the URL isn't simple-regexed as a product page
   function productUrlCheck (regexUrlCheck, url) {
     // check if url matches regex test and return true/false
     if (regexUrlCheck.test(url)) {

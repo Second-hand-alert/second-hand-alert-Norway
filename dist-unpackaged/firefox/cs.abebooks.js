@@ -4,7 +4,8 @@
 })((function () { 'use strict';
 
   const browser = chrome;
-  const regexAkademikaProductPage = /\d{13}$/;
+
+  const regexAbebooksProductPage = /\d{11}\/bd$/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
   // Can also be used where the start of the URL isn't simple-regexed as a product page
@@ -19,26 +20,25 @@
     }
   }
 
-  const prodObjAkademika = {
+  const prodObjAbebooks = {
     type: 'CONTENT_BACKGROUND',
     title: '',
     ISBN: '',
     URL: 'https://bookis.com/no/search?books_norway&query=',
     URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
-    site: 'Akademika',
+    site: 'Abe books',
     searchSite: 'Bookis.no',
     searchResults: null,
     available: null,
     timeStamp: null
   };
 
-  function extractAndPrepareAkademika (prodObj) {
-    const regexTitle = /^.+?(?= - |$)/;
-    const regexISBN = /(?<=\()\d{13}(?=\))/;
-    const titleTag = document.getElementsByTagName('title')[0].innerHTML;
-    prodObj.title = regexTitle.exec(titleTag)[0];
-    prodObj.ISBN = regexISBN.exec(titleTag)[0];
-    console.log('### Akademika - ISBN: ' + prodObj.ISBN);
+  function extractAndPrepareAbebooks (prodObj) {
+    const regexISBN = /(?<=ISBN:\s)\d{13}/;
+    prodObj.title = document.getElementById('book-title').innerText;
+    const isbnContainer = document.querySelector('meta[name="description"]').getAttribute('content');
+    prodObj.ISBN = regexISBN.exec(isbnContainer)[0];
+    console.log('### Abe books - ISBN: ' + prodObj.ISBN);
     prodObj.timeStamp = Date.now();
     prodObj.URL = prodObj.URL + prodObj.ISBN;
     prodObj.URLCheckAvailability = prodObj.URLCheckAvailability + prodObj.ISBN;
@@ -58,8 +58,8 @@
       });
   }
 
-  if (productUrlCheck(regexAkademikaProductPage, window.location.href)) {
-    const prodObj = extractAndPrepareAkademika(prodObjAkademika);
+  if (productUrlCheck(regexAbebooksProductPage, window.location.href)) {
+    const prodObj = extractAndPrepareAbebooks(prodObjAbebooks);
     sendObj(prodObj);
   }
 

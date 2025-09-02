@@ -24,6 +24,13 @@ export default [
     }
   },
   {
+    // Chrome - content - Abe books
+    input: './lib/chrome/cs.abebooks.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.abebooks.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     // Chrome - content - AdLibris
     input: './lib/chrome/cs.adlibris.js',
     output: {
@@ -78,6 +85,13 @@ export default [
     input: './lib/firefox/cs.ikea.js',
     output: [
       { name: 'sha', file: './dist-unpackaged/firefox/cs.ikea.js', format: 'umd', exports: 'named' }
+    ]
+  },
+  {
+    // Firefox - content - Abe books
+    input: './lib/firefox/cs.abebooks.js',
+    output: [
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.abebooks.js', format: 'umd', exports: 'named' }
     ]
   },
   {
