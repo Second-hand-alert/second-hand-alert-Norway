@@ -4,7 +4,7 @@
 })((function () { 'use strict';
 
   const browser = chrome;
-  const regexAkademikaProductPage = /\d{13}$/;
+  const regexAkademikaProductPage = /[\d]{13}$/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
   // Can also be used where the start of the URL isn't simple-regexed as a product page

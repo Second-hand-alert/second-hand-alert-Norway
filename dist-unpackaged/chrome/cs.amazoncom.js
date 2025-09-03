@@ -4,7 +4,8 @@
 })((function () { 'use strict';
 
   const browser = chrome;
-  const regexAkademikaProductPage = /[\d]{13}$/;
+  const regexAmazoncomProductPageA = /((Amazon.com)(.+)(Books)$)|((Books)(.+)(Amazon.com)$)/;
+  const regexAmazoncomProductPageB = /:\s\d{13}:\s/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
   // Can also be used where the start of the URL isn't simple-regexed as a product page
@@ -19,26 +20,34 @@
     }
   }
 
-  const prodObjAkademika = {
+  const prodObjAmazoncom = {
     type: 'CONTENT_BACKGROUND',
     title: '',
     ISBN: '',
     URL: 'https://bookis.com/no/search?books_norway&query=',
     URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
-    site: 'Akademika',
+    site: 'Amazon.com',
     searchSite: 'Bookis.no',
     searchResults: null,
     available: null,
     timeStamp: null
   };
 
-  function extractAndPrepareAkademika (prodObj) {
-    const regexTitle = /^.+?(?= - |$)/;
-    const regexISBN = /(?<=\()\d{13}(?=\))/;
-    const titleTag = document.getElementsByTagName('title')[0].innerHTML;
-    prodObj.title = regexTitle.exec(titleTag)[0];
-    prodObj.ISBN = regexISBN.exec(titleTag)[0];
-    console.log('### Akademika - ISBN: ' + prodObj.ISBN);
+  function extractAndPrepareAmazoncom (prodObj) {
+    const regexISBN = /(?<=:\s)\d{13}(?=:\s)/;
+    const titleContent = document.querySelector('meta[name="title"]').getAttribute('content');
+    const regexStartsWithAmazon = /^(Amazon.com:\s)/;
+    const regexTitleA = /(?<=Amazon.com:\s)(.+)(?=: \d{13})/;
+    const regexTitleB = /(.+)(?=:.+:\s\d{13})/;
+    let title = '';
+    if (regexStartsWithAmazon.test(titleContent)) {
+      title = regexTitleA.exec(titleContent)[0];
+    } else {
+      title = regexTitleB.exec(titleContent)[0];
+    }
+    prodObj.title = title;
+    prodObj.ISBN = regexISBN.exec(titleContent);
+    console.log('### Amazon.com - ISBN: ' + prodObj.ISBN);
     prodObj.timeStamp = Date.now();
     prodObj.URL = prodObj.URL + prodObj.ISBN;
     prodObj.URLCheckAvailability = prodObj.URLCheckAvailability + prodObj.ISBN;
@@ -58,9 +67,13 @@
       });
   }
 
-  if (productUrlCheck(regexAkademikaProductPage, window.location.href)) {
-    const prodObj = extractAndPrepareAkademika(prodObjAkademika);
+  const titleContent = document.querySelector('meta[name="title"]').getAttribute('content');
+
+  if (productUrlCheck(regexAmazoncomProductPageA, titleContent) && productUrlCheck(regexAmazoncomProductPageB, titleContent)) {
+    const prodObj = extractAndPrepareAmazoncom(prodObjAmazoncom);
     sendObj(prodObj);
   }
+
+  console.log('#######################################  Content at Amazon.com!');
 
 }));

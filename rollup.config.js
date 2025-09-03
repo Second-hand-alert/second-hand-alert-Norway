@@ -45,6 +45,13 @@ export default [
     }
   },
   {
+    // Chrome - content - Amazon.com
+    input: './lib/chrome/cs.amazoncom.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.amazoncom.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     // Chrome - content - Ark
     input: './lib/chrome/cs.ark.js',
     output: {
@@ -107,6 +114,13 @@ export default [
     output: {
       name: 'sha', file: './dist-unpackaged/firefox/cs.akademika.js', format: 'umd', exports: 'named'
     }
+  },
+  {
+    // Firefox - content - Amazon.com
+    input: './lib/firefox/cs.amazoncom.js',
+    output: [
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.amazoncom.js', format: 'umd', exports: 'named' }
+    ]
   },
   {
     // Firefox - content - Ark
