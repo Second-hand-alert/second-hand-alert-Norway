@@ -5,6 +5,8 @@
 
   const browser = chrome;
 
+  // ### ############################################################################################### ###
+  // ### Product objects as variables or functions. Variables for sites with pages, functions for SPA
   const prodObjIkea = {
     type: 'CONTENT_BACKGROUND',
     title: '',
@@ -19,6 +21,8 @@
     timeStamp: null
   };
 
+  // ### ############################################################################################### ###
+  // ### Extract content from page and prepare for background-script stuff
   function extractAndPrepareIkea (prodObj) {
     const regexStandard = /^.+?(?=, )/gmu;
     const testMeasurement = /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)|(\d+\scm)/gmu;
@@ -54,6 +58,8 @@
     return prodObj
   }
 
+  // ### ############################################################################################### ###
+  // ### Function for sending product object to background script
   function sendObj (obj) {
     console.log('Sending object: ' + obj);
     const sending = browser.runtime.sendMessage(obj);

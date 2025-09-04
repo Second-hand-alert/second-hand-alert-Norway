@@ -52,6 +52,13 @@ export default [
     }
   },
   {
+    // Chrome - content - Amazon.co.uk
+    input: './lib/chrome/cs.amazoncouk.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.amazoncouk.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     // Chrome - content - Ark
     input: './lib/chrome/cs.ark.js',
     output: {
@@ -120,6 +127,13 @@ export default [
     input: './lib/firefox/cs.amazoncom.js',
     output: [
       { name: 'sha', file: './dist-unpackaged/firefox/cs.amazoncom.js', format: 'umd', exports: 'named' }
+    ]
+  },
+  {
+    // Firefox - content - Amazon.couk
+    input: './lib/firefox/cs.amazoncouk.js',
+    output: [
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.amazoncouk.js', format: 'umd', exports: 'named' }
     ]
   },
   {

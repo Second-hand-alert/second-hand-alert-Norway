@@ -4,7 +4,7 @@
 })((function () { 'use strict';
 
   const browser = chrome;
-  const regexAmazoncomProductPageA = /((Amazon.com)(.+)(Books)$)|((Books)(.+)(Amazon.com)$)/;
+  const regexAmazoncomProductPageA = /(Books)/;
   const regexAmazoncomProductPageB = /:\s\d{13}:\s/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
@@ -35,19 +35,12 @@
 
   function extractAndPrepareAmazoncom (prodObj) {
     const regexISBN = /(?<=:\s)\d{13}(?=:\s)/;
-    const titleContent = document.querySelector('meta[name="title"]').getAttribute('content');
-    const regexStartsWithAmazon = /^(Amazon.com:\s)/;
-    const regexTitleA = /(?<=Amazon.com:\s)(.+)(?=: \d{13})/;
-    const regexTitleB = /(.+)(?=:.+:\s\d{13})/;
-    let title = '';
-    if (regexStartsWithAmazon.test(titleContent)) {
-      title = regexTitleA.exec(titleContent)[0];
-    } else {
-      title = regexTitleB.exec(titleContent)[0];
-    }
-    prodObj.title = title;
-    prodObj.ISBN = regexISBN.exec(titleContent);
-    console.log('### Amazon.com - ISBN: ' + prodObj.ISBN);
+    let isbn = document.querySelector('meta[name="title"]').getAttribute('content');
+    prodObj.title = document.getElementById('productTitle').innerText;
+    isbn = regexISBN.exec(isbn);
+    prodObj.ISBN = isbn[0];
+    console.log('### Amazon.com - ISBN:  ' + prodObj.ISBN);
+    console.log('### Amazon.com - Title: ' + prodObj.title);
     prodObj.timeStamp = Date.now();
     prodObj.URL = prodObj.URL + prodObj.ISBN;
     prodObj.URLCheckAvailability = prodObj.URLCheckAvailability + prodObj.ISBN;
@@ -55,6 +48,8 @@
     return prodObj
   }
 
+  // ### ############################################################################################### ###
+  // ### Function for sending product object to background script
   function sendObj (obj) {
     console.log('Sending object: ' + obj);
     const sending = browser.runtime.sendMessage(obj);

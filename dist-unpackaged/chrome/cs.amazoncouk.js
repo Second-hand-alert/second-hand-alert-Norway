@@ -4,7 +4,8 @@
 })((function () { 'use strict';
 
   const browser = chrome;
-  const regexArkProductPage = /^(https:\/\/www\.ark\.no\/produkt\/boker\/)/;
+  const regexAmazoncoukProductPageB = /(Amazon)/;
+  const regexAmazoncoukProductPageA = /(Books)/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
   // Can also be used where the start of the URL isn't simple-regexed as a product page
@@ -19,26 +20,27 @@
     }
   }
 
-  function prodObjArk () {
-    return {
-      type: 'CONTENT_BACKGROUND',
-      title: '',
-      ISBN: '',
-      URL: 'https://bookis.com/no/search?books_norway&query=',
-      URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
-      site: 'ARK',
-      searchSite: 'Bookis.no',
-      searchResults: null,
-      available: null,
-      timeStamp: null
-    }
-  }
+  const prodObjAmazoncouk = {
+    type: 'CONTENT_BACKGROUND',
+    title: '',
+    ISBN: '',
+    URL: 'https://bookis.com/no/search?books_norway&query=',
+    URLCheckAvailability: 'https://gdfypn0d7k.execute-api.eu-central-1.amazonaws.com/production/v1/no/books/search?isbn13=',
+    site: 'Amazon.co.uk',
+    searchSite: 'Bookis.no',
+    searchResults: null,
+    available: null,
+    timeStamp: null
+  };
 
-  function extractAndPrepareArk (prodObj) {
-    console.log('################## prodobj in extractAndPrepareArk: ' + JSON.stringify(prodObj, null, 2));
-    prodObj.title = document.querySelector('meta[property="og:title"]').getAttribute('content');
-    prodObj.ISBN = document.querySelector('meta[name="evg:sku"]').getAttribute('content');
-    console.log('### ARK - ISBN: ' + prodObj.ISBN);
+  function extractAndPrepareAmazoncouk (prodObj) {
+    let isbn = document.querySelector('#rpi-attribute-book_details-isbn13 :nth-child(3) span').innerText;
+    prodObj.title = document.getElementById('productTitle').innerText;
+    isbn = isbn.replace(/[-]/g, '');
+    console.log(JSON.stringify(isbn));
+    prodObj.ISBN = isbn;
+    console.log('### Amazon.co.uk - ISBN:  ' + prodObj.ISBN);
+    console.log('### Amazon.co.uk - Title: ' + prodObj.title);
     prodObj.timeStamp = Date.now();
     prodObj.URL = prodObj.URL + prodObj.ISBN;
     prodObj.URLCheckAvailability = prodObj.URLCheckAvailability + prodObj.ISBN;
@@ -60,18 +62,13 @@
       });
   }
 
-  window.navigation.addEventListener('navigate', (event) => {
-    if (productUrlCheck(regexArkProductPage, event.destination.url)) {
-      console.log('###### location changed: ' + event.destination.url);
-      setTimeout(() => {
-        let prodObj = prodObjArk();
-        console.log('#### Ark prodObj now: ' + JSON.stringify(prodObj, null, 2));
-        prodObj = extractAndPrepareArk(prodObj);
-        sendObj(prodObj);
-      }, 1200);
-    }
-  });
+  const titleContent = document.querySelector('meta[name="title"]').getAttribute('content');
 
-  console.log('#######################################  Content at Ark!');
+  if (productUrlCheck(regexAmazoncoukProductPageA, titleContent) && productUrlCheck(regexAmazoncoukProductPageB, titleContent)) {
+    const prodObj = extractAndPrepareAmazoncouk(prodObjAmazoncouk);
+    sendObj(prodObj);
+  }
+
+  console.log('#######################################  Content at Amazon.co.uk!');
 
 }));

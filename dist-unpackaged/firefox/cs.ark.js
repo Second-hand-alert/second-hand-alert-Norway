@@ -46,6 +46,8 @@
     return prodObj
   }
 
+  // ### ############################################################################################### ###
+  // ### Function for sending product object to background script
   function sendObj (obj) {
     console.log('Sending object: ' + obj);
     const sending = browser.runtime.sendMessage(obj);

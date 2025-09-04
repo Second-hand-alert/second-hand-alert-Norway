@@ -5,6 +5,8 @@
 
   const browser = chrome;
 
+  // ### ############################################################################################### ###
+  // ###  Regular expressions to be used to check if a page is a product page
   const regexAbebooksProductPage = /\d{11}\/bd$/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
@@ -46,6 +48,8 @@
     return prodObj
   }
 
+  // ### ############################################################################################### ###
+  // ### Function for sending product object to background script
   function sendObj (obj) {
     console.log('Sending object: ' + obj);
     const sending = browser.runtime.sendMessage(obj);
