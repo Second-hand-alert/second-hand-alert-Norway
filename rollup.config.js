@@ -80,6 +80,13 @@ export default [
     }
   },
   {
+    // Chrome - content - Tronsmo
+    input: './lib/chrome/cs.tronsmo.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.tronsmo.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     // Firefox - popup
     input: './lib/firefox/popup.js',
     output: {
@@ -155,6 +162,13 @@ export default [
     input: './lib/firefox/cs.norli.js',
     output: [
       { name: 'sha', file: './dist-unpackaged/firefox/cs.norli.js', format: 'umd', exports: 'named' }
+    ]
+  },
+  {
+    // Firefox - content - Tronsmo
+    input: './lib/firefox/cs.tronsmo.js',
+    output: [
+      { name: 'sha', file: './dist-unpackaged/firefox/cs.tronsmo.js', format: 'umd', exports: 'named' }
     ]
   }
 ]
