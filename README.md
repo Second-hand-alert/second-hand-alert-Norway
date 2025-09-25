@@ -1,6 +1,8 @@
 
 # Second-hand alert - Norway
 
+REVIEWERS! [Note for reviewers](#note-for-reviewers) a bit down the page.
+
 ## Purpose of library
 
 Second-hand alert - Norway is a browser extension that gives you an alert when second hand/used alternatives to new products are available. Browse a connected store and get get a link to a second-hand alternative when available.
