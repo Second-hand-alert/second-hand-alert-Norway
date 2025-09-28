@@ -13,7 +13,7 @@
     queryPartReadable: '',
     queryPart: '',
     URL: '',
-    urlPart1: 'https://www.finn.no/bap/forsale/search.html?category=0.78&q=',
+    urlPart1: 'https://www.finn.no/recommerce/forsale/search?category=0.78&q=',
     urlPart2: '&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
     site: 'IKEA',
     searchSite: 'FINN.no',
