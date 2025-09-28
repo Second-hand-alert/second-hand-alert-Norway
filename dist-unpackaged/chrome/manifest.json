@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Second-hand alert",
-  "version": "0.5.22",
+  "version": "0.5.23",
   "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
     "16": "./img/icon16.png",
@@ -22,9 +22,9 @@
   "host_permissions": [
     "*://*.finn.no/*",
     "*://*.amazonaws.com/*",
-    "*://*.ikea.com/no/*",
+    "*://*.ikea.com/*",
     "*://*.abebooks.com/*",
-    "*://*.adlibris.com/nb/",
+    "*://*.adlibris.com/*",
     "*://*.akademika.no/*",
     "*://*.akademika.no/*",
     "*://*.amazon.com/*",
@@ -32,7 +32,7 @@
     "*://*.ark.no/*",
     "*://*.bokkilden.no/*",
     "*://*.norli.no/*",
-    "*://*.tronsmo.no/produkt*"
+    "*://*.tronsmo.no/*"
   ],
   "background": {
     "service_worker": "./background.js",
