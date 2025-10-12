@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Second-hand alert",
-  "version": "0.5.23",
+  "version": "0.5.24",
   "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
     "16": "./img/icon16.png",
@@ -11,7 +11,6 @@
     "128": "./img/icon128.png"
   },
   "permissions": [
-    "activeTab",
     "notifications",
     "storage"
   ],
@@ -26,13 +25,19 @@
     "*://*.abebooks.com/*",
     "*://*.adlibris.com/*",
     "*://*.akademika.no/*",
-    "*://*.akademika.no/*",
     "*://*.amazon.com/*",
     "*://*.amazon.co.uk/*",
     "*://*.ark.no/*",
     "*://*.bokkilden.no/*",
     "*://*.norli.no/*",
-    "*://*.tronsmo.no/*"
+    "*://*.tronsmo.no/*",
+    "*://*.barnashus.no/*",
+    "*://*.didriksons.com/*",
+    "*://*.gullkorn.no/*",
+    "*://*.kappahl.com/*",
+    "*://*.kattnakken.no/*",
+    "*://*.polarnopyret.no/*",
+    "*://*.reima.com/*"
   ],
   "browser_specific_settings": {
     "gecko": {
@@ -127,6 +132,62 @@
       ],
       "js": [
         "cs.tronsmo.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.barnashus.no/*"
+      ],
+      "js": [
+        "cs.barnashus.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.didriksons.com/no*"
+      ],
+      "js": [
+        "cs.didriksons.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.gullkorn.com/*"
+      ],
+      "js": [
+        "cs.gullkorn.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.kappahl.com/nb-no*"
+      ],
+      "js": [
+        "cs.kappahl.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.kattnakken.no/*"
+      ],
+      "js": [
+        "cs.kattnakken.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.polarnopyret.no/*"
+      ],
+      "js": [
+        "cs.polarnopyret.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.reima.com/nb-NO*"
+      ],
+      "js": [
+        "cs.reima.js"
       ]
     }
   ]
