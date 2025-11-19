@@ -1,6 +1,6 @@
 {
   "name": "used-alternative-alert",
-  "version": "0.5.25",
+  "version": "0.5.26",
   "description": "Browser extension to give you second hand/used alternatives to new products when shopping.",
   "main": "./lib/lib.background.js",
   "type": "module",
@@ -35,10 +35,9 @@
   "devDependencies": {
     "@arrow-js/core": "^1.0.0-alpha.10",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "bestzip": "^2.2.1",
     "rollup": "^4.48.1",
     "rollup-plugin-output-manifest": "^2.0.0",
     "standard": "^17.1.2",
-    "web-ext": "^8.9.0"
+    "web-ext": "^9.1.0"
   }
 }
