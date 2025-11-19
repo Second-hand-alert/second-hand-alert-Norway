@@ -28,7 +28,8 @@
     const testMeasurement = /(\d+x\d+x\d+\scm)|(\d+x\d+\scm)|(\d+\scm)/gmu;
     const regexMeasurement = /[\d]+(?=x)|[\d]+(?=\scm)/gu;
 
-    prodObj.title = document.getElementsByTagName('title')[0].innerHTML;
+    // prodObj.title = document.getElementsByTagName('title')[0].innerHTML
+    prodObj.title = document.getElementById('pip-buy-module-content').getElementsByTagName('h1')[0].textContent;
     prodObj.queryPartReadable = regexStandard.exec(prodObj.title);
 
     // Check if measurement in title
