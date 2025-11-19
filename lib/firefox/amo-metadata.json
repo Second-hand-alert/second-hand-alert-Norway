@@ -1,0 +1,15 @@
+{
+  "version": { "license": "MPL-2.0" },
+  "categories": { "firefox": ["shopping"] },
+  "requires_payment": false,
+  "homepage": {
+    "en-US": "https://secondhandalert.xyz",
+    "no-NB": "https://secondhandalert.xyz",
+    "no-NN": "https://secondhandalert.xyz"
+  },
+  "support_email": {
+    "en-US": "espen.klem@gmail.com",
+    "no-NB": "espen.klem@gmail.com",
+    "no-NN": "espen.klem@gmail.com"
+  }
+}

@@ -42,7 +42,12 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "{8808a52c-1c1f-4fa9-a951-30e748a6f014}",
-      "strict_min_version": "128.0"
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": [
+          "websiteContent"
+        ]
+      }
     },
     "gecko_android": {
       "strict_min_version": "128.0"

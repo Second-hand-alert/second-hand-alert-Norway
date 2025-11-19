@@ -13,8 +13,9 @@
   "scripts": {
     "build-manifest": "node ./lib/manifest.js --experimental-json-modules",
     "build": "npm run build-manifest && rollup --config && cp ./lib/popup.* ./dist-unpackaged/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/chrome/img/ && cp ./lib/popup.* ./dist-unpackaged/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/firefox/img/",
-    "zip-chrome": "cd ./dist-unpackaged/chrome/ && bestzip ../../dist/norway-chrome-build.zip *",
-    "package": "npm run zip-chrome",
+    "zip-chrome": "web-ext build -s ./dist-unpackaged/chrome/ -a ./dist/chrome/",
+    "zip-firefox": "web-ext build -s ./dist-unpackaged/firefox/ -a ./dist/firefox/",
+    "package": "npm run zip-chrome && npm run zip-firefox",
     "test": "npm run build && standard './lib/*.js'"
   },
   "repository": {
