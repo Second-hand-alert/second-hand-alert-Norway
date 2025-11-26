@@ -98,6 +98,12 @@ export default [
     }
   },
   {
+    input: './lib/chrome/cs.hellyhansen.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.hellyhansen.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     input: './lib/chrome/cs.kappahl.js',
     output: {
       name: 'sha', file: './dist-unpackaged/chrome/cs.kappahl.js', format: 'umd', exports: 'named'
@@ -215,6 +221,12 @@ export default [
     input: './lib/firefox/cs.gullkorn.js',
     output: {
       name: 'sha', file: './dist-unpackaged/firefox/cs.gullkorn.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
+    input: './lib/firefox/cs.hellyhansen.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/firefox/cs.hellyhansen.js', format: 'umd', exports: 'named'
     }
   },
   {
