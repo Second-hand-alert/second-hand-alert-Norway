@@ -1,6 +1,6 @@
 {
   "name": "used-alternative-alert",
-  "version": "0.5.27",
+  "version": "0.5.29",
   "description": "Browser extension to give you second hand/used alternatives to new products when shopping.",
   "main": "./lib/lib.background.js",
   "type": "module",
@@ -13,9 +13,10 @@
   "scripts": {
     "build-manifest": "node ./lib/manifest.js --experimental-json-modules",
     "build": "npm run build-manifest && rollup --config && cp ./lib/popup.* ./dist-unpackaged/chrome/ && cp -r ./lib/img/ ./dist-unpackaged/chrome/img/ && cp ./lib/popup.* ./dist-unpackaged/firefox/ && cp -r ./lib/img/ ./dist-unpackaged/firefox/img/",
+    "purge-zip": "rm ./dist/chrome/* && rm ./dist/firefox/*",
     "zip-chrome": "web-ext build -s ./dist-unpackaged/chrome/ -a ./dist/chrome/",
     "zip-firefox": "web-ext build -s ./dist-unpackaged/firefox/ -a ./dist/firefox/",
-    "package": "npm run zip-chrome && npm run zip-firefox",
+    "package": "npm run purge-zip && npm run zip-chrome && npm run zip-firefox",
     "test": "npm run build && standard './lib/*.js'"
   },
   "repository": {

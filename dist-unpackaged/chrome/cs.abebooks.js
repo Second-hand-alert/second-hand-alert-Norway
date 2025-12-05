@@ -14,10 +14,10 @@
   function productUrlCheck (regexUrlCheck, url) {
     // check if url matches regex test and return true/false
     if (regexUrlCheck.test(url)) {
-      console.log('### Book product page TRUE --> ' + url);
+      console.log('### Product product page TRUE --> ' + url);
       return true
     } else {
-      console.log('### Book product page FALSE --> ' + url);
+      console.log('### Product page FALSE --> ' + url);
       return false
     }
   }

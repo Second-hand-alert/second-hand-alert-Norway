@@ -64,6 +64,7 @@
   function productSearchFINN (prodObj) {
     fetch(prodObj.URL)
       .then(response => {
+        console.log('searching finn');
         return response.text()
       })
       .then(html => {
