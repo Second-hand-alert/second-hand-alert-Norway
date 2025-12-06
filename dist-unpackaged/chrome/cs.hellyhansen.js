@@ -36,7 +36,6 @@
   }
 
   function extractAndPrepareHellyhansen (prodObj) {
-    console.log('extracting...');
     const regexHellyhansen = /.+((?= Herre+)|(?= Dame+)|(?= Barn+)|(?= Jente+)|(?= Gutt+))|.+/;
     prodObj.title = document.getElementsByTagName('h1')[0].textContent;
     console.log(prodObj.title);

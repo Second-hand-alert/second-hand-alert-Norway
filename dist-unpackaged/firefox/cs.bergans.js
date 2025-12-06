@@ -20,7 +20,6 @@
   };
 
   function extractAndPrepareBergans (prodObj) {
-    console.log('extracting...');
     prodObj.title = document.getElementsByTagName('h1')[0].textContent;
     console.log(prodObj.title);
     prodObj.queryPartReadable = prodObj.title;
