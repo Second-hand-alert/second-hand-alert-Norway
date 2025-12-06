@@ -106,10 +106,17 @@ img {
 h2 {
   font-family: "IBM Plex Sans", serif;
   font-size:1.1em;
-  line-height:1.4em;
+  line-height:1.3em;
   font-weight:500;
   margin-bottom:0.2em;
   color:#777777;
+}
+
+h2 > span {
+  display:block;
+  font-size:0.9em;
+  font-weight:300;
+  text-transform:uppercase;
 }
 
 h1, h2 {
