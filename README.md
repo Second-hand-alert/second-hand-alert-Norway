@@ -38,13 +38,11 @@ All external libraries listed in package.json, but also here:
   To populate popup.html with content. Pulls info from background.js. Bundled together with lib.popup.js to become popup.js. Not used in content scripts.
 * `"@rollup/plugin-node-resolve": "^16.0.1"`
    Rollup-plugin for popup.js
-* `"bestzip": "^2.2.1"`
-  Packing extension for Chrome
 * `rollup": "^4.48.1"`
   Bundling tool for content scripts, background.js and popup.js
 * `"standard": "^17.1.2"`
   Used for ensuring good coding practice. Not all files are possible to keep in line with StandardJS.
-* `"web-ext": "^8.9.0"`
+* `"web-ext": "^9.0.1"`
   Testing and packing extension for Firefox
 * `./lib/manifest.js`
   Custom build-script for manifest.json

@@ -41,7 +41,7 @@
     prodObj.title = document.getElementsByTagName('h1')[0].textContent;
     console.log(prodObj.title);
     prodObj.queryPartReadable = regexHellyhansen.exec(prodObj.title)[0];
-    prodObj.queryPartReadable = prodObj.queryPartReadable.replaceAll('™', '');
+    prodObj.queryPartReadable = prodObj.queryPartReadable.replaceAll('™', '').replaceAll('®', '');
     prodObj.queryPart = prodObj.queryPartReadable.replaceAll(' ', '+');
     prodObj.timeStamp = Date.now();
     // Create URL and delete key/values not needed
