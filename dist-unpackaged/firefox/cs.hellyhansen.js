@@ -19,6 +19,7 @@
     }
   }
 
+
   function prodObjHellyhansen () {
     return {
       type: 'CONTENT_BACKGROUND',
@@ -26,7 +27,7 @@
       queryPartReadable: '',
       queryPart: '',
       URL: '',
-      urlPart1: 'https://www.finn.no/recommerce/forsale/search?brand=9159&q=',
+      urlPart1: 'https://www.finn.no/recommerce/forsale/search?brand=1541&q=',
       urlPart2: '&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
       site: 'Helly Hansen',
       searchSite: 'FINN.no',

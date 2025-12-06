@@ -86,6 +86,12 @@ export default [
     }
   },
   {
+    input: './lib/chrome/cs.bergans.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.bergans.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     input: './lib/chrome/cs.didriksons.js',
     output: {
       name: 'sha', file: './dist-unpackaged/chrome/cs.didriksons.js', format: 'umd', exports: 'named'
@@ -209,6 +215,12 @@ export default [
     input: './lib/firefox/cs.barnashus.js',
     output: {
       name: 'sha', file: './dist-unpackaged/firefox/cs.barnashus.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
+    input: './lib/firefox/cs.bergans.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/firefox/cs.bergans.js', format: 'umd', exports: 'named'
     }
   },
   {
