@@ -35,25 +35,13 @@
     }
   }
 
-  // const prodObjHellyhansen = {
-  //   type: 'CONTENT_BACKGROUND',
-  //   title: '',
-  //   queryPartReadable: '',
-  //   queryPart: '',
-  //   URL: '',
-  //   urlPart1: 'https://www.finn.no/recommerce/forsale/search?brand=9159&q=',
-  //   urlPart2: '&sort=PRICE_ASC&for_rent=0&trade_type=1&trade_type=2',
-  //   site: 'Helly Hansen',
-  //   searchSite: 'FINN.no',
-  //   searchResults: null,
-  //   timeStamp: null
-  // }
-
   function extractAndPrepareHellyhansen (prodObj) {
     console.log('extracting...');
-    const regexHellyhansen = /.+?((?= Herre)|(?= Damer)|(?= Barn))/;
+    const regexHellyhansen = /.+((?= Herre+)|(?= Dame+)|(?= Barn+)|(?= Jente+)|(?= Gutt+))|.+/;
     prodObj.title = document.getElementsByTagName('h1')[0].textContent;
+    console.log(prodObj.title);
     prodObj.queryPartReadable = regexHellyhansen.exec(prodObj.title)[0];
+    prodObj.queryPartReadable = prodObj.queryPartReadable.replaceAll('™', '');
     prodObj.queryPart = prodObj.queryPartReadable.replaceAll(' ', '+');
     prodObj.timeStamp = Date.now();
     // Create URL and delete key/values not needed
@@ -93,28 +81,23 @@
     }
   };
 
-  // document.body.addEventListener('keyup', (event) => {
-  //   setTimeout(() => {
-  //     if (event.key === 'enter' && productUrlCheck(regexHellyhansenProductPage, window.location.href) && firstTime === false && newURL(window.location.href) === true) {
-  //       console.log('###location changed: ' + window.location.href)
-  //       console.log('### Hello PRODUCT at Helly Hansen in Firefox! ###')
-  //       let prodObj = prodObjHellyhansen()
-  //       console.log('#### Hellyhansen prodObj now: ' + JSON.stringify(prodObj, null, 2))
-  //       prodObj = extractAndPrepareHellyhansen(prodObj)
-  //       console.dir(prodObj)
-  //       sendObj(prodObj)
-  //     }
-  //   }, 1200)
-  // })
+  document.body.addEventListener('keyup', (event) => {
+    setTimeout(() => {
+      if (event.key === 'enter' && productUrlCheck(regexHellyhansenProductPage, window.location.href) && firstTime === false && newURL(window.location.href) === true) {
+        console.log('###location changed: ' + window.location.href);
+        let prodObj = prodObjHellyhansen();
+        prodObj = extractAndPrepareHellyhansen(prodObj);
+        sendObj(prodObj);
+      }
+    }, 1200);
+  });
 
   document.body.addEventListener('click', (event) => {
     setTimeout(() => {
       console.log('###### event click registered: ' + window.location.href);
       if (productUrlCheck(regexHellyhansenProductPage, window.location.href) && firstTime === false && newURL(window.location.href)) {
         console.log('### location changed: ' + window.location.href);
-        console.log('### Hello PRODUCT at Helly Hansen in Firefox! ###');
         let prodObj = prodObjHellyhansen();
-        console.log('#### Hellyhansen prodObj noww: ' + JSON.stringify(prodObj, null, 2));
         prodObj = extractAndPrepareHellyhansen(prodObj);
         sendObj(prodObj);
       }
@@ -127,9 +110,7 @@
     if (productUrlCheck(regexHellyhansenProductPage, window.location.href)) {
       setTimeout(() => {
         let prodObj = prodObjHellyhansen;
-        console.log('#### Hellyhansen prodObj now: ' + JSON.stringify(prodObj, null, 2));
         prodObj = extractAndPrepareHellyhansen(prodObj);
-        console.dir(prodObj);
         sendObj(prodObj);
       }, 1200);
     }

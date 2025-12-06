@@ -62,6 +62,7 @@
   // ###    D: Search Finn, send response to popup script and notify if        ###
   // ###       results                                                         ###
   function productSearchFINN (prodObj) {
+    console.log('searching url: ' + prodObj.URL);
     fetch(prodObj.URL)
       .then(response => {
         console.log('searching finn');
