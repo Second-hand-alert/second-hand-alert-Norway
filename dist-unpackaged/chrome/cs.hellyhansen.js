@@ -4,6 +4,7 @@
 })((function () { 'use strict';
 
   const browser = chrome;
+  // ###  Clothes
   const regexHellyhansenProductPage = /(?<=-)\d{4,}(?=\?)?/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.

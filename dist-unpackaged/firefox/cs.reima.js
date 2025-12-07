@@ -36,7 +36,6 @@
   }
 
   function extractAndPrepareReima (prodObj) {
-    console.log('extracting...');
     const regexReima = /((?<=småbarn )|(?<=barn )).+/;
     prodObj.title = document.getElementsByTagName('h1')[0].textContent;
     console.log(prodObj.title);

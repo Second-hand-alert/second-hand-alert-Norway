@@ -7,6 +7,7 @@
 
   // ### ############################################################################################### ###
   // ###  Regular expressions to be used to check if a page is a product page
+  // ###  Books
   const regexAbebooksProductPage = /\d{11}\/bd$/;
 
   // For SPA-sites, content script triggers on every page. This function to check if it's a product page.
