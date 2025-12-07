@@ -114,6 +114,6 @@
     }
   }
 
-  console.log('Content at Helly Hansen!');
+  console.log('Content at Reima!');
 
 }));
