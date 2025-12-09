@@ -39,7 +39,7 @@
   function extractAndPrepareDidriksons (prodObj) {
     console.log('extracting...');
     const regexDidriksons = /^\p{Alpha}+/u;
-    prodObj.title = document.getElementsByTagName('h1')[0].innerText;
+    prodObj.title = document.getElementsByTagName('h1')[0].textContent;
     console.log(prodObj.title);
     prodObj.queryPartReadable = regexDidriksons.exec(prodObj.title)[0];
     prodObj.queryPart = prodObj.queryPartReadable;
