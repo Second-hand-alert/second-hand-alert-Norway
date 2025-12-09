@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Second-hand alert",
-  "version": "0.5.34",
+  "version": "0.5.35",
   "description": "Get an alert if a product you are browsing in a webstore is available used, somewhere else.",
   "icons": {
     "16": "./img/icon16.png",
@@ -168,14 +168,6 @@
     },
     {
       "matches": [
-        "*://*.hellyhansen.com/*"
-      ],
-      "js": [
-        "cs.hellyhansen.js"
-      ]
-    },
-    {
-      "matches": [
         "*://*.kappahl.com/nb-no*"
       ],
       "js": [
@@ -184,7 +176,7 @@
     },
     {
       "matches": [
-        "*://*.kattnakken.no/*"
+        "*://*.kattnakken.no/products*"
       ],
       "js": [
         "cs.kattnakken.js"
