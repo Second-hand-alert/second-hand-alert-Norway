@@ -34,6 +34,7 @@
     "*://*.barnashus.no/*",
     "*://*.bergans.com/*",
     "*://*.didriksons.com/*",
+    "*://*.eurosko.com/*",
     "*://*.gullkorn.no/*",
     "*://*.hellyhansen.com/*",
     "*://*.kappahl.com/*",
@@ -148,6 +149,14 @@
       ],
       "js": [
         "cs.didriksons.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.eurosko.com/*"
+      ],
+      "js": [
+        "cs.eurosko.js"
       ]
     },
     {

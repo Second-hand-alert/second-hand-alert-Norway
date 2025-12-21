@@ -37,7 +37,7 @@
 
   function extractAndPrepareKappahl (prodObj) {
     const regexKaxs = /Kaxs/;
-    prodObj.title = document.getElementsByTagName('section')[0].getElementsByTagName('h1')[0].textContent;
+    prodObj.title = document.getElementsByTagName('main')[0].getElementsByTagName('h1')[0].textContent;
     if (regexKaxs.test(prodObj.title)) {
       console.log(prodObj.title);
       prodObj.queryPartReadable = prodObj.title;

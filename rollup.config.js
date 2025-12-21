@@ -98,6 +98,12 @@ export default [
     }
   },
   {
+    input: './lib/chrome/cs.eurosko.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/chrome/cs.eurosko.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
     input: './lib/chrome/cs.gullkorn.js',
     output: {
       name: 'sha', file: './dist-unpackaged/chrome/cs.gullkorn.js', format: 'umd', exports: 'named'
@@ -227,6 +233,12 @@ export default [
     input: './lib/firefox/cs.didriksons.js',
     output: {
       name: 'sha', file: './dist-unpackaged/firefox/cs.didriksons.js', format: 'umd', exports: 'named'
+    }
+  },
+  {
+    input: './lib/firefox/cs.eurosko.js',
+    output: {
+      name: 'sha', file: './dist-unpackaged/firefox/cs.eurosko.js', format: 'umd', exports: 'named'
     }
   },
   {

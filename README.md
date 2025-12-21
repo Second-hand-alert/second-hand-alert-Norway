@@ -46,3 +46,8 @@ All external libraries listed in package.json, but also here:
   Testing and packing extension for Firefox
 * `./lib/manifest.js`
   Custom build-script for manifest.json
+
+
+  ## Rights
+
+  ** Copyright © 2025 Espen Klem. All rights reserved **
