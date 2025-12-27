@@ -47,7 +47,6 @@ All external libraries listed in package.json, but also here:
 * `./lib/manifest.js`
   Custom build-script for manifest.json
 
+## Rights
 
-  ## Rights
-
-  ** Copyright © 2025 Espen Klem. All rights reserved **
+** Copyright © 2025 Espen Klem. All rights reserved **
