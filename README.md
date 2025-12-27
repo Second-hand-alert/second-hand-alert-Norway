@@ -49,4 +49,4 @@ All external libraries listed in package.json, but also here:
 
 ## Rights
 
-** Copyright © 2025 Espen Klem. All rights reserved **
+**Copyright © 2025 Espen Klem. All rights reserved**
